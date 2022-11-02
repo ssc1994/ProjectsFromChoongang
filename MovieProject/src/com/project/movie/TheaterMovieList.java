@@ -10,23 +10,19 @@ import javax.swing.JLabel;
 
 public class TheaterMovieList {
 	TheaterMovieList() {
+		//프레임 선언
 		JFrame jf2 = new JFrame();
 
-		jf2.setTitle("상영관");
-
-		jf2.setSize(600, 600);
-		//		jf2.setLayout(new FlowLayout());
-		Dimension frameSize = jf2.getSize();
+		jf2.setTitle("상영관");//창 이름 설정
+		jf2.setSize(600, 600);//창 크기 설정
 
 		//화면 중앙에 배치
 		jf2.setLocationRelativeTo(null);
-
-		//		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
-		//		setLocation((windowSize.width - frameSize.width) / 2,
-		//				(windowSize.height - frameSize.height) / 2); //화면 중앙에 띄우기
+		//x버튼 누르면 종료되도록 설정
 		jf2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf2.setVisible(true);
-
+		
+		//위치 설정하기 위해 써줌
 		jf2.getContentPane().setLayout(null);
 
 		//영화 리스트
@@ -35,14 +31,10 @@ public class TheaterMovieList {
 		JLabel movie3 = new JLabel("고속도로 가족"); 
 		JLabel movie4 = new JLabel("블랙 아담"); 
 
-
-		//		JButton movie1 = new JButton("수수께끼! 꽃피는 천하떡잎학교");
-		//		JButton movie2 = new JButton("자백");
-		//		JButton movie3 = new JButton("고속도로 가족");
-		//		JButton movie4 = new JButton("블랙 아담");
+		//뒤로가기 버튼 선언
 		JButton back = new JButton("뒤로가기");
 
-		//시간 리스트 
+		//시간 리스트 버튼 선언
 		//movie1
 		JButton movie1time1 = new JButton("17:50");
 		JButton movie1time2 = new JButton("20:00");
@@ -61,17 +53,17 @@ public class TheaterMovieList {
 		JButton movie4time5 = new JButton("21:20");
 		JButton movie4time6 = new JButton("23:50");
 
-		//영화리스트 위치 설정
+		//영화리스트 버튼 위치 설정
 		movie1.setBounds(50,50,210,30);
 		movie2.setBounds(50,170,122,30);
 		movie3.setBounds(50,290,122,30);
 		movie4.setBounds(50,410,122,30);
 
-		//뒤로가기 위치 설정
+		//뒤로가기 버튼 위치 설정
 		back.setBounds(450,490,122,30);
 
 
-		//시간리스트 위치 설정
+		//시간리스트 버튼 위치 설정
 		//movie1
 		movie1time1.setBounds(70, 105, 110, 30);
 		movie1time2.setBounds(180, 105, 110, 30);
@@ -98,6 +90,8 @@ public class TheaterMovieList {
 		jf2.add(movie2);
 		jf2.add(movie3);
 		jf2.add(movie4);
+		
+		//뒤로가기 버튼 삽입
 		jf2.add(back);
 
 		//시간리스트 버튼 삽입
@@ -120,7 +114,6 @@ public class TheaterMovieList {
 		jf2.add(movie4time6);
 
 
-		//시간 클릭하면 창 넘어가게 설정
 		//movie1
 		movie1time1.addActionListener(new ActionListener() {
 
