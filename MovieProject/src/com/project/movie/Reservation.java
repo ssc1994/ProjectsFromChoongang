@@ -7,14 +7,20 @@ import javax.swing.*;
 public class Reservation {//예매정보 객체
 //	 private Person person; //예매한 고객을 ID로 분류하고 회원정보에서 찾아서 가져옴
 	 private int round; //영화의 회차 정보
-	 private String seat; //예매한 좌석
+	 
+	 
+	 private JCheckBox[][] seats = new JCheckBox[7][10];  //예매한 좌석
+	  
+	 
+	 
+	 
 	 Calendar now1 = Calendar.getInstance();
 	 
 	 public Reservation(){
 		 JFrame resFrame = new JFrame();
 		 resFrame.setTitle("예매하기");
-		 resFrame.setSize(500,600);
-		 resFrame.setLocation(800,200);
+		 resFrame.setSize(600,600);
+		 resFrame.setLocationRelativeTo(null);
 		 resFrame.setLayout(new FlowLayout());
 		 JPanel row1 = new JPanel();
 		 JPanel row2 = new JPanel();
@@ -23,18 +29,16 @@ public class Reservation {//예매정보 객체
 		 resFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 
 		 Font font1 = new Font("배달의민족 도현", Font.BOLD,20);
-		 Font seat = new Font("맑은고딕",Font.PLAIN,8);
+		 Font seat = new Font("맑은고딕",Font.BOLD,10);
 		 
 		 
 		 //row1에 날짜 //영화명//회차(영화시간) 표시
 		 JLabel year = new JLabel();
 		 String t1 =now1.get(Calendar.YEAR) + " 년 " ;
 		 year.setText(t1);
-		 
 		 JLabel month = new JLabel();
 		 String t2 =(now1.get(Calendar.MONTH)+1) + " 월 " ;
 		 month.setText(t2);
-		 
 		 JLabel day = new JLabel();
 		 String t3 = now1.get(Calendar.DAY_OF_MONTH) + " 일";
 		 day.setText(t3);
@@ -50,98 +54,59 @@ public class Reservation {//예매정보 객체
 		 JLabel curTime = new JLabel("선택한 회차");
 		 curTime.setAlignmentX(Label.RIGHT);
 		 
+		 today.setPreferredSize(new Dimension(100,50));
+		 curMovie.setPreferredSize(new Dimension(180,50));
+		 curMovie.setAlignmentX(Label.CENTER_ALIGNMENT);
+		 curTime.setPreferredSize(new Dimension(120,50));
+		 curTime.setAlignmentX(Label.RIGHT_ALIGNMENT);
+		 
+		 
 		 row1.add(today);
 		 row1.add(curMovie);
 		 curMovie.setBackground(Color.white);
 		 row1.add(curTime);
+		 row1.setPreferredSize(new Dimension(500,100));
 		 
-		 //row2에 좌석 표시
-		 JButton A1 = new JButton("A1");
-		 JButton A2 = new JButton("A2");
-		 JButton A3 = new JButton("A3");
-		 JButton A4 = new JButton("A4");
-		 JButton A5 = new JButton("A5");
-		 JButton A6 = new JButton("A6");
-		 JButton A7 = new JButton("A7");
-		 JButton A8 = new JButton("A8");
-		 JButton A9 = new JButton("A9");
-		 JButton A10 = new JButton("A10");
 		 
-		 JButton B1 = new JButton("B1");
-		 JButton B2 = new JButton("B2");
-		 JButton B3 = new JButton("B3");
-		 JButton B4 = new JButton("B4");
-		 JButton B5 = new JButton("B5");
-		 JButton B6 = new JButton("B6");
-		 JButton B7 = new JButton("B7");
-		 JButton B8 = new JButton("B8");
-		 JButton B9 = new JButton("B9");
-		 JButton B10 = new JButton("B10");
+		 row2.setPreferredSize(new Dimension(500,20));
 		 
-		 JButton C1 = new JButton("C1");
-		 JButton C2 = new JButton("C2");
-		 JButton C3 = new JButton("C3");
-		 JButton C4 = new JButton("C4");
-		 JButton C5 = new JButton("C5");
-		 JButton C6 = new JButton("C6");
-		 JButton C7 = new JButton("C7");
-		 JButton C8 = new JButton("C8");
-		 JButton C9 = new JButton("C9");
-		 JButton C10 = new JButton("C10");
+		 //row2에 좌석열 표시
+		 for (int i = 0; i < 10; i++) {
+				JLabel seatRowLabel = new JLabel();
+				String input = Integer.toString(i + 1) + "     ";
+				seatRowLabel.setText(input);
+				seatRowLabel.setBounds(61 + (i * 22), 55, 22, 15);
+				seatRowLabel.setFont(new Font("휴먼엑스포", Font.PLAIN, 14));
+				row2.add(seatRowLabel);
+			}
 		 
-		 JButton D1 = new JButton("D1");
-		 JButton D2 = new JButton("D2");
-		 JButton D3 = new JButton("D3");
-		 JButton D4 = new JButton("D4");
-		 JButton D5 = new JButton("D5");
-		 JButton D6 = new JButton("D6");
-		 JButton D7 = new JButton("D7");
-		 JButton D8 = new JButton("D8");
-		 JButton D9 = new JButton("D9");
-		 JButton D10 = new JButton("D10");
+		 row3.setPreferredSize(new Dimension(500,400));
 		 
-		 JButton E1 = new JButton("E1");
-		 JButton E2 = new JButton("E2");
-		 JButton E3 = new JButton("E3");
-		 JButton E4 = new JButton("E4");
-		 JButton E5 = new JButton("E5");
-		 JButton E6 = new JButton("E6");
-		 JButton E7 = new JButton("E7");
-		 JButton E8 = new JButton("E8");
-		 JButton E9 = new JButton("E9");
-		 JButton E10 = new JButton("E10");
 		 
-		 JButton F1 = new JButton("F1");
-		 JButton F2 = new JButton("F2");
-		 JButton F3 = new JButton("F3");
-		 JButton F4 = new JButton("F4");
-		 JButton F5 = new JButton("F5");
-		 JButton F6 = new JButton("F6");
-		 JButton F7 = new JButton("F7");
-		 JButton F8 = new JButton("F8");
-		 JButton F9 = new JButton("F9");
-		 JButton F10 = new JButton("F10");
 		 
-		 JButton G1 = new JButton("G1");
-		 JButton G2 = new JButton("G2");
-		 JButton G3 = new JButton("G3");
-		 JButton G4 = new JButton("G4");
-		 JButton G5 = new JButton("G5");
-		 JButton G6 = new JButton("G6");
-		 JButton G7 = new JButton("G7");
-		 JButton G8 = new JButton("G8");
-		 JButton G9 = new JButton("G9");
-		 JButton G10 = new JButton("G10");
+		 for(int i = 0 ; i< 7	;	i++) {
+			 for(int j = 0 ; j<10 ; j++) {
+				 JCheckBox box = new JCheckBox();
+				 seats[i][j] = box;
+				 char seatrow = (char)(i+65);
+				 box.setText(seatrow+" " + Integer.toString(j+1));
+				 box.setFont(seat);
+				 row3.add(box);
+			 }
+		 }
 		 
+		 
+		
+		
 		 
 		 //row1 폰트설정
 		 today.setFont(font1);
 		 curMovie.setFont(font1);
 		 curTime.setFont(font1);
-
 		 
 		 
-		 resFrame.add(row1);
+		 
+		 resFrame.add("North",row1);
 		 resFrame.add(row2);
 		 resFrame.add(row3);
 		 resFrame.add(row4);
