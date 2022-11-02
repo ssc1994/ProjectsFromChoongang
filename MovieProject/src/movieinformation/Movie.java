@@ -40,7 +40,7 @@ public class Movie {
 		this.ageLimit = ageLimit;
 	}
 	
-	public void movieInfo(Movie name) {
+	public void movieInfo() {
 		System.out.println( "영화이름= " + movieName + ", 러닝타임= " + runningTime+"분" + ", ageLimit= "
 				+ ageLimit); 
 	}
