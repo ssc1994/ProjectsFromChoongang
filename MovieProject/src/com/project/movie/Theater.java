@@ -1,14 +1,13 @@
 package com.project.movie;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalTime;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 
 
 public class Theater {//현재 상영중인 영화
@@ -25,7 +24,11 @@ public class Theater {//현재 상영중인 영화
 		JFrame jf = new JFrame();
 		jf.setTitle("영화관");// 창 타이틀
 		jf.setSize(600, 600);//창 크기 설정
-
+		
+		//폰트 설정
+		Font font1 = new Font("맑은고딕", Font.BOLD, 20);
+		
+		
 		// 화면 중앙에 띄우기
 		jf.setLocationRelativeTo(null);
 		// x버튼 누르면 종료되게 설정
@@ -123,7 +126,6 @@ public class Theater {//현재 상영중인 영화
 		new Theater();
 
 	}
-
-
+	
 
 }
