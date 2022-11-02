@@ -32,10 +32,12 @@ public class SignInClass {
 				String id = scan.next();
 				String idlower=id.toLowerCase();
 				//아이디 검사하고 올바른 형식인지 확인하기
-				if(!idlower.matches("[^a-z0-9]")) {
+				if(!idlower.matches("^[0-9a-z]*$")) {
 					System.out.println("아이디는 영어와 숫자로만 생성 가능합니다");
 					continue;
 				}
+					
+				
 				//아이디 중복검사하기
 				//기존에 있는 아이디 가져오기
 				BufferedReader bfr = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\login.txt"));
@@ -43,6 +45,7 @@ public class SignInClass {
 				String eid = line.split(" ")[0];
 				String eidlower=eid.toLowerCase();
 				//기존에 있는 아이디를 소문자로 변환한 것과 새로 입력한 아이디를 소문자로 변환한 것을 비교하기
+				
 				if(idlower.equals(eidlower)) {
 					System.out.println("이미 존재하는 아이디입니다.");
 					continue;
@@ -102,7 +105,7 @@ public class SignInClass {
 					//대문자 하나 포함
 					System.out.println("비밀번호는 대문자가 하나 이상 포함되어야 합니다");
 					continue;
-				}else if(!pword.matches("[^a-zA-Z0-9]")) {
+				}else if(!pword.matches("^[0-9a-zA-Z]*$")) {
 					System.out.println("비밀번호는 영어와 숫자로만 생성 가능합니다");
 				}else {
 					System.out.println("올바른 형식의 비밀번호입니다");
@@ -113,7 +116,7 @@ public class SignInClass {
 				
 				//비밀번호 확인
 				while(true) {
-					System.out.print("비밀번호를 확인해주세요");
+					System.out.print("비밀번호를 확인해주세요>");
 					String pword2=scan.next();
 					
 					if(!pword2.equals(pwordtemp)) {
@@ -152,7 +155,7 @@ public class SignInClass {
 				System.out.print("이름을 입력하세요>");
 				String name = scan.next();
 				//이름 검사하고 올바른 형식인지 확인하기
-				if(!name.matches("[^a-zA-Z0-9가-힣]")) {
+				if(!name.matches("^[0-9a-zA-Z가-힣]*$")) {
 					System.out.println("이름의 형식이 잘못되었습니다");
 					continue;
 				}
@@ -171,12 +174,13 @@ public class SignInClass {
 					System.out.print("나이를 입력하세요>");
 					String age = scan.next();
 					//나이 검사하고 올바른 형식인지 확인하기
-					if(!age.matches("[^0-9]")||Integer.parseInt(age)<=0||Integer.parseInt(age)>=300) {
+					if(!age.matches("^[0-9]*$")||Integer.parseInt(age)<=0||Integer.parseInt(age)>=300) {
 						System.out.println("나이의 형식이 잘못되었습니다");
 						continue;
 					}else{
 						this.Age=age;
 						signup.print(this.Age+"\n");
+						System.out.println("회원가입이 완료되었습니다");
 						signup.flush();
 						signup.close();
 						break;
