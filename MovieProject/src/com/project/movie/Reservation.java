@@ -5,6 +5,7 @@ import java.util.Calendar;
 import javax.swing.*;
 
 public class Reservation {//예매정보 객체
+
 //	 private Person person; //예매한 고객을 ID로 분류하고 회원정보에서 찾아서 가져옴
 	 private int round; //영화의 회차 정보
 	 private String seat; //예매한 좌석
