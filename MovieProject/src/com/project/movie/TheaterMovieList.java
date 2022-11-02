@@ -1,18 +1,12 @@
 package com.project.movie;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.event.AncestorListener;
 
 public class TheaterMovieList {
 	TheaterMovieList() {
@@ -42,10 +36,10 @@ public class TheaterMovieList {
 		JLabel movie4 = new JLabel("블랙 아담"); 
 
 
-//		JButton movie1 = new JButton("수수께끼! 꽃피는 천하떡잎학교");
-//		JButton movie2 = new JButton("자백");
-//		JButton movie3 = new JButton("고속도로 가족");
-//		JButton movie4 = new JButton("블랙 아담");
+		//		JButton movie1 = new JButton("수수께끼! 꽃피는 천하떡잎학교");
+		//		JButton movie2 = new JButton("자백");
+		//		JButton movie3 = new JButton("고속도로 가족");
+		//		JButton movie4 = new JButton("블랙 아담");
 		JButton back = new JButton("뒤로가기");
 
 		//시간 리스트 
@@ -66,7 +60,7 @@ public class TheaterMovieList {
 		JButton movie4time4 = new JButton("18:50");
 		JButton movie4time5 = new JButton("21:20");
 		JButton movie4time6 = new JButton("23:50");
-		
+
 		//영화리스트 위치 설정
 		movie1.setBounds(50,50,210,30);
 		movie2.setBounds(50,170,122,30);
@@ -125,8 +119,9 @@ public class TheaterMovieList {
 		jf2.add(movie4time5);
 		jf2.add(movie4time6);
 
-		
+
 		//시간 클릭하면 창 넘어가게 설정
+		//movie1
 		movie1time1.addActionListener(new ActionListener() {
 
 			@Override
@@ -136,8 +131,119 @@ public class TheaterMovieList {
 				jf2.setVisible(false);
 			}
 		});
-		
-		
+		movie1time2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+		movie1time3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+		//movie2
+		movie2time1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+		movie2time2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+		//movie3
+		movie3time1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+		movie3time2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+		//movie4
+		movie4time1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+		movie4time2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+		movie4time3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+		movie4time4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+		movie4time5.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+		movie4time6.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/////////나중에 다음 페이지 추가해야함///////////
+				new TheaterMovieList();
+				jf2.setVisible(false);
+			}
+		});
+
+
 		back.addActionListener(new ActionListener() {
 
 			@Override

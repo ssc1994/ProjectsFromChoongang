@@ -3,11 +3,8 @@ package com.project.movie;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,8 +13,6 @@ import javax.swing.JPanel;
 
 public class Theater {//현재 상영중인 영화
 	private Movie movie; //영화 정보
-	private String TheaterLocation;
-	private String Theater;
 	private int round; //회차 정보
 	private String start; //시작시간 
 	private String finish; //끝시간
