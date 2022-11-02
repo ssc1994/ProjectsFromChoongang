@@ -42,7 +42,7 @@ public class SignInClass {
 				//기존에 있는 아이디 가져오기
 				BufferedReader bfr = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\login.txt"));
 				String line = bfr.readLine();
-				String eid = line.split(" ")[0];
+				String eid = line.split("\t")[0];
 				String eidlower=eid.toLowerCase();
 				//기존에 있는 아이디를 소문자로 변환한 것과 새로 입력한 아이디를 소문자로 변환한 것을 비교하기
 
@@ -52,7 +52,7 @@ public class SignInClass {
 				}else{
 					System.out.println("아이디 생성이 가능합니다!");
 					this.Id=id;
-					signup.print(this.Id+"\s");
+					signup.print(this.Id+"\t");
 					signup.flush();
 					signup.close();
 					bfr.close();
@@ -125,7 +125,7 @@ public class SignInClass {
 				}else {
 					System.out.println("비밀번호 생성이 가능합니다!");
 					this.Pw=pwordtemp;
-					signup.print(this.Pw+"\s");
+					signup.print(this.Pw+"\t");
 					signup.flush();
 					signup.close();
 					break;
@@ -161,7 +161,7 @@ public class SignInClass {
 				}
 				else{
 					this.Name=name;
-					signup.print(this.Name+"\s");
+					signup.print(this.Name+"\t");
 					signup.flush();
 					break;
 				}

@@ -1,6 +1,5 @@
 package com.project.movie;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
@@ -27,7 +26,7 @@ public class Login {//회원가입한 고객 클래스
 			while(true) {	
 				this.line = bfr.readLine();
 				if(line==null) break;
-				this.info = this.line.split(" ");
+				this.info = this.line.split("\t");
 				this.infopw.put(this.info[0], this.info[1]);
 				this.infoname.put(this.info[0], this.info[2]);
 				this.infoage.put(this.info[0], this.info[3]);
@@ -61,11 +60,10 @@ public class Login {//회원가입한 고객 클래스
 				this.InfoID=myid;
 				this.InfoName=infoname.get(myid);
 				this.InfoAge=infoage.get(myid);
+				scan.close();
 				break;
 			}
 		}
-		scan.close();
-
 	}
 
 
