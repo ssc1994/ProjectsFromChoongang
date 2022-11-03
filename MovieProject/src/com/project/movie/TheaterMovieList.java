@@ -145,10 +145,10 @@ public class TheaterMovieList {
 				/////////나중에 다음 페이지 추가해야함///////////
 
 				//시간 설정
-				Date now = new Date();
 				String movie1time1_ = "17:50";
 
 				try {
+					Date now = new Date();
 					SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
 					Date movie1_time1 = dateFormat.parse(movie1time1_);
 
