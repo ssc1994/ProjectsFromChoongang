@@ -113,7 +113,7 @@ public class Reservation {//예매정보 객체
 				char seatrow = (char)(i+65);
 				box.setText(seatrow + Integer.toString(j+1));
 				box.setFont(seat);
-//				box.addActionListener( new SeatActionListener());
+				box.addItemListener(action);
 				row3_2.add(box);
 			}
 		}
@@ -123,6 +123,7 @@ public class Reservation {//예매정보 객체
 		for( int i = 1 ; i<=10 ; i++) {
 			JRadioButton ch = new JRadioButton(i+"명");
 			seatnum.add(ch);
+			ch.addActionListener(null);//인원수 선택
 			row4.add(ch);
 		}
 
@@ -135,20 +136,7 @@ public class Reservation {//예매정보 객체
 		choice.setText(cho);
 		row5.add(choice);
 
-		//좌석번호 출력용
-		//		 for(int i = 0 ; i< 7	;	i++) {
-		//			 for(int j = 0 ; j<10 ; j++) {
-		//				 JCheckBox box = new JCheckBox();
-		//				 seats[i][j] = box;
-		//				 char seatrow = (char)(i+65);
-		//				 box.setText(seatrow + Integer.toString(j+1));
-		//				 box.setFont(seat);
-		//				 row3_2.add(box);
-		//			 }
-		//		 }
-
-
-
+	
 
 
 		resFrame.add("North",row1);
@@ -179,7 +167,30 @@ public class Reservation {//예매정보 객체
 //			}
 //			
 //		}
-		
+	ItemListener action = new ItemListener() {
+
+		@Override
+		public void itemStateChanged(ItemEvent e) {
+			 JCheckBox cb = (JCheckBox)e.getSource();
+		     
+			 if(e.getStateChange()==1) {
+				 seatsNumber.add(cb.getText());
+				 System.out.println(seatsNumber);
+			 }else {
+				 if(e.getStateChange()==0)
+					 while (seatsNumber.remove(String.valueOf(cb.getText()))) {
+				        };
+					 seatsNumber.remove(seatsNumber.indexOf(cb.getText()));
+			 }
+			 
+		        //isSelected가 체크박스가 체크되었는지 해제되었는지
+		        //확인해준다.
+			 
+			
+		}
+	};
+	
+	
 	
 	public static void main(String[] args) {
 		Reservation rv =new Reservation();
