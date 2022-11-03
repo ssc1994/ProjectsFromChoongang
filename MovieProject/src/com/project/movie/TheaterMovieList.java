@@ -155,7 +155,7 @@ public class TheaterMovieList {
 					if(now.getTime() > movie1_time1.getTime()) {
 						JOptionPane.showMessageDialog(null, "이미 상영이 시작한 영화입니다!");
 					} else {
-						new TheaterMovieList();
+						new Reservation();
 						jf2.setVisible(false);
 					}
 
@@ -174,8 +174,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				Reservation rv = new Reservation();
-				rv.Reserv();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -184,7 +183,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -194,7 +193,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -203,7 +202,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -213,7 +212,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -222,7 +221,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -232,7 +231,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -241,7 +240,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -250,7 +249,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -259,7 +258,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -268,7 +267,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -277,7 +276,7 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
