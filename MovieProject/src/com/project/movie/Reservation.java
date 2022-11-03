@@ -39,6 +39,7 @@ public class Reservation {//예매정보 객체
 		Font seat = new Font("맑은고딕",Font.BOLD,10);
 		Font colfont = new Font("맑은고딕", Font.PLAIN, 16);
 		Font rowfont = new Font("맑은고딕", Font.BOLD, 12);
+    
 		//예매완료 버튼 생성
 		JButton res = new JButton("예매완료");
 		row6.add(res);
@@ -117,7 +118,9 @@ public class Reservation {//예매정보 객체
 				}
 			}
 		}
+
 		res.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//				List<String> copiedList = new ArrayList<>(seatsNumber);
@@ -208,6 +211,7 @@ public class Reservation {//예매정보 객체
 			}
 		}
 	};
+
 
 
 	public static void main(String[] args) {
