@@ -6,7 +6,11 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,6 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class TheaterMovieList {
+	
+	
 	TheaterMovieList() {
 		//프레임 선언
 		JFrame jf2 = new JFrame();
@@ -73,7 +79,9 @@ public class TheaterMovieList {
 		JButton movie4time6 = new JButton("23:50");
 
 		String a = movie1time1.getText();
-
+		String b = movie1time2.getText();
+		System.out.println(a);
+		System.out.println(b);
 
 		//영화리스트 버튼 위치 설정
 		movie1.setBounds(50,50,210,30);
@@ -143,29 +151,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-
-				//시간 설정
-				String movie1time1_ = "17:50";
-
-				try {
-					Date now = new Date();
-					SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-					Date movie1_time1 = dateFormat.parse(movie1time1_);
-
-					if(now.getTime() > movie1_time1.getTime()) {
-						JOptionPane.showMessageDialog(null, "이미 상영이 시작한 영화입니다!");
-					} else {
-						new TheaterMovieList();
-						jf2.setVisible(false);
-					}
-
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-
-
-
-
+				Reservation rv = new Reservation();
+				rv.Reserv();
 			}
 
 		});
