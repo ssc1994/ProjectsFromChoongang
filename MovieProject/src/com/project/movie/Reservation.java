@@ -50,9 +50,7 @@ public class Reservation {//예매정보 객체
 		Font colfont = new Font("맑은고딕", Font.PLAIN, 16);
 		Font rowfont = new Font("맑은고딕", Font.BOLD, 12);
 
-
 		//예매완료 버튼 생성
-
 		JButton res = new JButton("예매완료");
 		row6.add(res);
 
@@ -146,15 +144,6 @@ public class Reservation {//예매정보 객체
 			}
 		}
     
-    //선택된 좌석이 중복하지 않도록 처리
-				for(int s =0; s < seatsNumber.size(); s++) {
-					if(seatname.equals(seatsNumber.get(s))) {
-						box.setEnabled(false);
-					}
-				}
-				
-			}
-		}
 
 
 		res.addActionListener(new ActionListener() {
@@ -172,15 +161,15 @@ public class Reservation {//예매정보 객체
 			}
 		});
 		back.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//				List<String> copiedList = new ArrayList<>(seatsNumber);
 				//				seatsNumber.add(cho)
-				
+
 				new TheaterMovieList();
 				resFrame.setVisible(false);
-				
+
 			}
 		});
 
@@ -300,6 +289,7 @@ public class Reservation {//예매정보 객체
 
 		}
 	};
+
 
 
 	public static void main(String[] args) {
