@@ -19,15 +19,16 @@ public class Reservation {//예매정보 객체
 	private int round; //영화의 회차 정보
 	private JCheckBox[][] seats = new JCheckBox[7][10];  //예매한 좌석
 	private static List<String> seatsNumber = new ArrayList<>();
+	static String[] movie = new String[12];
+	private static List<String> seatsNumberSave = new ArrayList<>();
 	public int Seatcheck = 0;
 	public int Personcheck = 0;
 	static String cho = "";
 	JLabel choice = new JLabel();
-
-
+	
 	Calendar now1 = Calendar.getInstance();
 
-	public void Reserv(){
+	public Reservation(){
 		JFrame resFrame = new JFrame();
 		resFrame.setTitle("예매하기");
 		resFrame.setSize(600,600);
@@ -134,14 +135,15 @@ public class Reservation {//예매정보 객체
 				row3_2.add(box);
 
 				//선택된 좌석이 중복하지 않도록 처리
-				for(int s =0; s < seatsNumber.size(); s++) {
-					if(seatname.equals(seatsNumber.get(s))) {
+				for(int s =0; s < seatsNumberSave.size(); s++) {
+					if(seatname.equals(seatsNumberSave.get(s))) {
 						box.setEnabled(false);
 					}
 				}
 
 			}
 		}
+    
 
 
 		res.addActionListener(new ActionListener() {
@@ -171,6 +173,34 @@ public class Reservation {//예매정보 객체
 			}
 		});
 
+
+		res.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//				List<String> copiedList = new ArrayList<>(seatsNumber);
+				//				seatsNumber.add(cho)
+
+				new Reservation();
+				new Main();
+				resFrame.setVisible(false);
+				seatsNumber.removeAll(seatsNumber);
+				seatsNumber.add("선택한 좌석 : ");
+			}
+		});
+		back.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//				List<String> copiedList = new ArrayList<>(seatsNumber);
+				//				seatsNumber.add(cho)
+
+				new TheaterMovieList();
+				resFrame.setVisible(false);
+				seatsNumber.removeAll(seatsNumber);
+			}
+		});
+
 		//인원수 선택
 		ButtonGroup seatnum = new ButtonGroup();
 		JLabel select = new JLabel ("관람인원 : ");
@@ -191,6 +221,7 @@ public class Reservation {//예매정보 객체
 		choice.setAlignmentX(Label.LEFT_ALIGNMENT);
 
 		seatsNumber.add("선택한 좌석 : ");
+		seatsNumberSave.add("선택한 좌석 : ");
 		row5.add(choice);
 
 		resFrame.add("North",row1);
@@ -232,6 +263,7 @@ public class Reservation {//예매정보 객체
 			cho="";		//클릭될때마다 cho를 초기화
 			if(e.getStateChange()==1) {
 				seatsNumber.add(cb.getText());
+				seatsNumberSave.add(cb.getText());
 				System.out.println(seatsNumber);
 				cho += seatsNumber;
 				choice.setText(cho);
@@ -244,6 +276,7 @@ public class Reservation {//예매정보 객체
 					while (seatsNumber.remove(String.valueOf(cb.getText()))) {
 					};
 					seatsNumber.remove(seatsNumber.indexOf(cb.getText()));
+					seatsNumberSave.remove(seatsNumber.indexOf(cb.getText()));
 					System.out.println(seatsNumber);
 					cho += seatsNumber;
 					choice.setText(cho);
@@ -260,7 +293,6 @@ public class Reservation {//예매정보 객체
 
 
 	public static void main(String[] args) {
-		Reservation rv =new Reservation();
-		rv.Reserv();
+		new Reservation();
 
 	}}
