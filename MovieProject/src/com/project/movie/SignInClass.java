@@ -32,24 +32,29 @@ public class SignInClass {
 				String id = scan.next();
 				String idlower=id.toLowerCase();
 				//아이디 검사하고 올바른 형식인지 확인하기
-				if(!idlower.matches("[^a-z0-9]")) {
+				if(!idlower.matches("^[0-9a-z]*$")) {
 					System.out.println("아이디는 영어와 숫자로만 생성 가능합니다");
 					continue;
 				}
+
+
 				//아이디 중복검사하기
 				//기존에 있는 아이디 가져오기
 				BufferedReader bfr = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\login.txt"));
 				String line = bfr.readLine();
-				String eid = line.split(" ")[0];
+				String eid = line.split("\t")[0];
 				String eidlower=eid.toLowerCase();
 				//기존에 있는 아이디를 소문자로 변환한 것과 새로 입력한 아이디를 소문자로 변환한 것을 비교하기
+
 				if(idlower.equals(eidlower)) {
 					System.out.println("이미 존재하는 아이디입니다.");
 					continue;
 				}else{
 					System.out.println("아이디 생성이 가능합니다!");
 					this.Id=id;
-					signup.print(this.Id);
+
+					signup.print(this.Id+"\t");
+
 					signup.flush();
 					signup.close();
 					bfr.close();
@@ -102,7 +107,7 @@ public class SignInClass {
 					//대문자 하나 포함
 					System.out.println("비밀번호는 대문자가 하나 이상 포함되어야 합니다");
 					continue;
-				}else if(!pword.matches("[^a-zA-Z0-9]")) {
+				}else if(!pword.matches("^[0-9a-zA-Z]*$")) {
 					System.out.println("비밀번호는 영어와 숫자로만 생성 가능합니다");
 				}else {
 					System.out.println("올바른 형식의 비밀번호입니다");
@@ -110,39 +115,40 @@ public class SignInClass {
 					break;
 				}
 			}
-				
-				//비밀번호 확인
-				while(true) {
-					System.out.print("비밀번호를 확인해주세요");
-					String pword2=scan.next();
-					
-					if(!pword2.equals(pwordtemp)) {
-						System.out.println("입력한 비밀번호와 다릅니다");
-						continue;
-					}else {
-						System.out.println("비밀번호 생성이 가능합니다!");
-						this.Pw=pwordtemp;
-						signup.print(this.Pw);
-						signup.flush();
-						signup.close();
-						break;
-					}
+
+
+			//비밀번호 확인
+			while(true) {
+				System.out.print("비밀번호를 확인해주세요>");
+				String pword2=scan.next();
+
+				if(!pword2.equals(pwordtemp)) {
+					System.out.println("입력한 비밀번호와 다릅니다");
+					continue;
+				}else {
+					System.out.println("비밀번호 생성이 가능합니다!");
+					this.Pw=pwordtemp;
+					signup.print(this.Pw+"\t");
+					signup.flush();
+					signup.close();
+					break;
 				}
-				
-				//비밀번호까지 입력했으면 이름과 나이 입력하기
-				if(this.Pw!=null) {
-					setNameAge();
-				}
-				
-				scan.close();
-				
-			}catch (Exception e) {
-				System.out.println(e.getLocalizedMessage());
 			}
+
+			//비밀번호까지 입력했으면 이름과 나이 입력하기
+			if(this.Pw!=null) {
+				setNameAge();
+			}
+
+			scan.close();
+
+		}catch (Exception e) {
+			System.out.println(e.getLocalizedMessage());
+		}
 	}
-		
+
 	public void setNameAge() {
-		
+
 		//이름과 나이 기록파일에 입력하기
 		try {
 			PrintStream signup = new PrintStream(new FileOutputStream("C:\\Users\\user\\Desktop\\login.txt",true));
@@ -152,37 +158,39 @@ public class SignInClass {
 				System.out.print("이름을 입력하세요>");
 				String name = scan.next();
 				//이름 검사하고 올바른 형식인지 확인하기
-				if(!name.matches("[^a-zA-Z0-9가-힣]")) {
+				if(!name.matches("^[0-9a-zA-Z가-힣]*$")) {
 					System.out.println("이름의 형식이 잘못되었습니다");
 					continue;
 				}
 				else{
 					this.Name=name;
-					signup.print(this.Name);
+
+					signup.print(this.Name+"\t");
 					signup.flush();
-					signup.close();
 					break;
 				}
 			}
-			
+
 			if(this.Name!=null){
 				//나이 입력하기
 				while(true) {
 					System.out.print("나이를 입력하세요>");
 					String age = scan.next();
 					//나이 검사하고 올바른 형식인지 확인하기
-					if(!age.matches("[^0-9]")||Integer.parseInt(age)<=0||Integer.parseInt(age)>=300) {
+					if(!age.matches("^[0-9]*$")||Integer.parseInt(age)<=0||Integer.parseInt(age)>=300) {
 						System.out.println("나이의 형식이 잘못되었습니다");
 						continue;
 					}else{
 						this.Age=age;
-						signup.print(this.Age+"\n");
+						signup.print(this.Age+"\r\n");
+						System.out.println("회원가입이 완료되었습니다");
 						signup.flush();
 						signup.close();
 						break;
 					}
 				}
 			}
+			scan.close();
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getLocalizedMessage());
 		}
