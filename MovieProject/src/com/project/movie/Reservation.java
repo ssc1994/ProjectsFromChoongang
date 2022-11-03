@@ -39,16 +39,17 @@ public class Reservation {//예매정보 객체
 		JPanel row3_2 = new JPanel();
 		JPanel row4 = new JPanel();
 		JPanel row5 = new JPanel();
-    JPanel row6 = new JPanel();
+		JPanel row6 = new JPanel();
 		JPanel row7 = new JPanel();
 		resFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		Font font1 = new Font("맑은고딕", Font.BOLD,20);
+		Font font2 = new Font("맑은고딕", Font.BOLD, 15);
 		Font seat = new Font("맑은고딕",Font.BOLD,10);
 		Font colfont = new Font("맑은고딕", Font.PLAIN, 16);
 		Font rowfont = new Font("맑은고딕", Font.BOLD, 12);
 
-//예매완료 버튼 생성
+		//예매완료 버튼 생성
 		JButton res = new JButton("예매완료");
 		row6.add(res);
 
@@ -126,19 +127,19 @@ public class Reservation {//예매정보 객체
 				seats[i][j] = box;
 				char seatrow = (char)(i+65);
 				box.setText(seatrow + Integer.toString(j+1));
+				String seatname = seatrow + Integer.toString(j+1);
+				box.setText(seatname);
 				box.setFont(seat);
 				box.addItemListener(action);
 				row3_2.add(box);
-			}
-		}
-    
-    //선택된 좌석이 중복하지 않도록 처리
+
+				//선택된 좌석이 중복하지 않도록 처리
 				for(int s =0; s < seatsNumber.size(); s++) {
 					if(seatname.equals(seatsNumber.get(s))) {
 						box.setEnabled(false);
 					}
 				}
-				
+
 			}
 		}
 
@@ -158,29 +159,32 @@ public class Reservation {//예매정보 객체
 			}
 		});
 		back.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//				List<String> copiedList = new ArrayList<>(seatsNumber);
 				//				seatsNumber.add(cho)
-				
+
 				new TheaterMovieList();
 				resFrame.setVisible(false);
-				
+
 			}
 		});
 
 		//인원수 선택
 		ButtonGroup seatnum = new ButtonGroup();
-		for( int i = 1 ; i<=10 ; i++) {
+		JLabel select = new JLabel ("관람인원 : ");
+		select.setFont(font2);
+		row4.add(select);
+		for( int i = 1 ; i<=9 ; i++) {
 			JRadioButton ch = new JRadioButton(i+"명");
 			seatnum.add(ch);
 			ch.addActionListener(new SeatActionListener());//인원수 선택
 			row4.add(ch);
 		}
 
-		
-		
+
+
 		//선택한 좌석 출력 ( 체크박스 이벤트에 넣어서 클릭이 될때 마다 seatsNumber을 추가해줌)
 		row5.setAlignmentX(Label.LEFT_ALIGNMENT);
 		row5.setPreferredSize(new Dimension(450,100));
@@ -195,7 +199,7 @@ public class Reservation {//예매정보 객체
 		resFrame.add(row3_2);
 		resFrame.add(row4);
 		resFrame.add(row5);
-    resFrame.add(row6);
+		resFrame.add(row6);
 		resFrame.add(row7);
 
 
@@ -210,53 +214,53 @@ public class Reservation {//예매정보 객체
 
 	}
 	class SeatActionListener implements ActionListener {
-		
+
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JRadioButton ppl = (JRadioButton)e.getSource();
-				Personcheck = Integer.parseInt(String.valueOf(ppl.getText().charAt(0))); 
-			}
-			
+			Personcheck = Integer.parseInt(String.valueOf(ppl.getText().charAt(0))); 
 		}
-	
-	
+
+	}
+
+
 	ItemListener action = new ItemListener() {
 
 		@Override
 		public void itemStateChanged(ItemEvent e) {
-			 JCheckBox cb = (JCheckBox)e.getSource();
-		     cho="";		//클릭될때마다 cho를 초기화
-			 if(e.getStateChange()==1) {
-				 seatsNumber.add(cb.getText());
-				 System.out.println(seatsNumber);
-				 cho += seatsNumber;
-				 choice.setText(cho);
-				 if(seatsNumber.size() ==Personcheck+2) {
-					 JOptionPane.showMessageDialog(null,Personcheck+ "명까지 선택가능");
-				 }
-				 
-			 }else {
-				 if(e.getStateChange()==0)
-					 while (seatsNumber.remove(String.valueOf(cb.getText()))) {
-				        };
-					 seatsNumber.remove(seatsNumber.indexOf(cb.getText()));
-					 System.out.println(seatsNumber);
-					 cho += seatsNumber;
-					 choice.setText(cho);
-					 
-					 
-			 }
-			 
-		       
-			 
-			
+			JCheckBox cb = (JCheckBox)e.getSource();
+			cho="";		//클릭될때마다 cho를 초기화
+			if(e.getStateChange()==1) {
+				seatsNumber.add(cb.getText());
+				System.out.println(seatsNumber);
+				cho += seatsNumber;
+				choice.setText(cho);
+				if(seatsNumber.size() ==Personcheck+2) {
+					JOptionPane.showMessageDialog(null,Personcheck+ "명까지 선택가능");
+				}
+
+			}else {
+				if(e.getStateChange()==0)
+					while (seatsNumber.remove(String.valueOf(cb.getText()))) {
+					};
+					seatsNumber.remove(seatsNumber.indexOf(cb.getText()));
+					System.out.println(seatsNumber);
+					cho += seatsNumber;
+					choice.setText(cho);
+
+
+			}
+
+
+
+
 		}
 	};
-	
-	
-	
+
+
+
 	public static void main(String[] args) {
 		Reservation rv =new Reservation();
 		rv.Reserv();
 
-	}
+	}}
