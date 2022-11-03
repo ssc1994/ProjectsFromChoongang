@@ -5,12 +5,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+
 import java.util.*;
 import java.util.List;
 
 import javax.swing.*;
 
 public class Reservation {//예매정보 객체
+
 
 	//	 private Person person; //예매한 고객을 ID로 분류하고 회원정보에서 찾아서 가져옴
 	private int round; //영화의 회차 정보
@@ -36,6 +39,8 @@ public class Reservation {//예매정보 객체
 		JPanel row3_2 = new JPanel();
 		JPanel row4 = new JPanel();
 		JPanel row5 = new JPanel();
+    JPanel row6 = new JPanel();
+		JPanel row7 = new JPanel();
 		resFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		Font font1 = new Font("맑은고딕", Font.BOLD,20);
@@ -43,6 +48,13 @@ public class Reservation {//예매정보 객체
 		Font colfont = new Font("맑은고딕", Font.PLAIN, 16);
 		Font rowfont = new Font("맑은고딕", Font.BOLD, 12);
 
+//예매완료 버튼 생성
+		JButton res = new JButton("예매완료");
+		row6.add(res);
+
+		//뒤로가기 버튼 생성
+		JButton back = new JButton("뒤로가기");
+		row7.add(back);
 
 
 		//row1에 날짜 //영화명//회차(영화시간) 표시
@@ -119,6 +131,44 @@ public class Reservation {//예매정보 객체
 				row3_2.add(box);
 			}
 		}
+    
+    //선택된 좌석이 중복하지 않도록 처리
+				for(int s =0; s < seatsNumber.size(); s++) {
+					if(seatname.equals(seatsNumber.get(s))) {
+						box.setEnabled(false);
+					}
+				}
+				
+			}
+		}
+
+
+		res.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//				List<String> copiedList = new ArrayList<>(seatsNumber);
+				//				seatsNumber.add(cho)
+
+				Reservation r = new Reservation();
+				r.Reserv();
+				new Main();
+				resFrame.setVisible(false);
+
+			}
+		});
+		back.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//				List<String> copiedList = new ArrayList<>(seatsNumber);
+				//				seatsNumber.add(cho)
+				
+				new TheaterMovieList();
+				resFrame.setVisible(false);
+				
+			}
+		});
 
 		//인원수 선택
 		ButtonGroup seatnum = new ButtonGroup();
@@ -145,6 +195,8 @@ public class Reservation {//예매정보 객체
 		resFrame.add(row3_2);
 		resFrame.add(row4);
 		resFrame.add(row5);
+    resFrame.add(row6);
+		resFrame.add(row7);
 
 
 
@@ -208,5 +260,3 @@ public class Reservation {//예매정보 객체
 		rv.Reserv();
 
 	}
-
-}

@@ -46,6 +46,15 @@ public class Theater {//현재 상영중인 영화
 		JButton screen5 = new JButton("건대입구");
 		JButton back = new JButton("뒤로가기");
 		
+		//버튼 테두리 삭제
+		screen1.setFocusable(false);
+		screen2.setFocusable(false);
+		screen3.setFocusable(false);
+		screen4.setFocusable(false);
+		screen5.setFocusable(false);
+		back.setFocusable(false);
+		
+		
 		//영화관 버튼 위치 설정
 		screen1.setBounds(30,250,80,30);
 		screen2.setBounds(140,250,80,30);
