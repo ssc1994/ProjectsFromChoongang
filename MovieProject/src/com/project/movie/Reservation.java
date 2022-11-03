@@ -15,10 +15,12 @@ public class Reservation {//예매정보 객체
 	//	 private Person person; //예매한 고객을 ID로 분류하고 회원정보에서 찾아서 가져옴
 	private int round; //영화의 회차 정보
 	private JCheckBox[][] seats = new JCheckBox[7][10];  //예매한 좌석
-	private static List<String> seatsNumber = new ArrayList<String>();
+	private static List<String> seatsNumber = new ArrayList<>();
 	public int Seatcheck = 0;
 	public int Personcheck = 0;
 	static String cho = "";
+	JLabel choice = new JLabel();
+
 
 	Calendar now1 = Calendar.getInstance();
 
@@ -123,21 +125,19 @@ public class Reservation {//예매정보 객체
 		for( int i = 1 ; i<=10 ; i++) {
 			JRadioButton ch = new JRadioButton(i+"명");
 			seatnum.add(ch);
-			ch.addActionListener(null);//인원수 선택
+			ch.addActionListener(new SeatActionListener());//인원수 선택
 			row4.add(ch);
 		}
 
-		//선택한 좌석 출력
+		
+		
+		//선택한 좌석 출력 ( 체크박스 이벤트에 넣어서 클릭이 될때 마다 seatsNumber을 추가해줌)
+		row5.setAlignmentX(Label.LEFT_ALIGNMENT);
+		row5.setPreferredSize(new Dimension(450,100));
+		choice.setAlignmentX(Label.LEFT_ALIGNMENT);
 
-		row5.setPreferredSize(new Dimension(450,50));
-
-		JLabel choice = new JLabel();
-		choice.setFont(font1);
-		choice.setText(cho);
+		seatsNumber.add("선택한 좌석 : ");
 		row5.add(choice);
-
-	
-
 
 		resFrame.add("North",row1);
 		resFrame.add(row2);
@@ -157,34 +157,45 @@ public class Reservation {//예매정보 객체
 		resFrame.setVisible(true);
 
 	}
-//	class SeatActionListener implements ActionListener {
-//		
-//		@Override
-//		public void actionPerformed(ActionEvent e) {
-//			JCheckBox jbox = (JCheckBox)e.getSource();
-//				
-//				
-//			}
-//			
-//		}
+	class SeatActionListener implements ActionListener {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JRadioButton ppl = (JRadioButton)e.getSource();
+				Personcheck = Integer.parseInt(String.valueOf(ppl.getText().charAt(0))); 
+			}
+			
+		}
+	
+	
 	ItemListener action = new ItemListener() {
 
 		@Override
 		public void itemStateChanged(ItemEvent e) {
 			 JCheckBox cb = (JCheckBox)e.getSource();
-		     
+		     cho="";		//클릭될때마다 cho를 초기화
 			 if(e.getStateChange()==1) {
 				 seatsNumber.add(cb.getText());
 				 System.out.println(seatsNumber);
+				 cho += seatsNumber;
+				 choice.setText(cho);
+				 if(seatsNumber.size() ==Personcheck+2) {
+					 JOptionPane.showMessageDialog(null,Personcheck+ "명까지 선택가능");
+				 }
+				 
 			 }else {
 				 if(e.getStateChange()==0)
 					 while (seatsNumber.remove(String.valueOf(cb.getText()))) {
 				        };
 					 seatsNumber.remove(seatsNumber.indexOf(cb.getText()));
+					 System.out.println(seatsNumber);
+					 cho += seatsNumber;
+					 choice.setText(cho);
+					 
+					 
 			 }
 			 
-		        //isSelected가 체크박스가 체크되었는지 해제되었는지
-		        //확인해준다.
+		       
 			 
 			
 		}
