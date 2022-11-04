@@ -1,7 +1,6 @@
-package movieinformation;
+package com.project.movie;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,7 +18,6 @@ public class MovieInfo {
 	
 	protected JLabel poster;
 	protected JLabel movieInfo;
-	
 	
 	 MovieInfo(){
 		 
@@ -61,35 +59,20 @@ public class MovieInfo {
 		 JPanel pan2 = new JPanel();
 		 pan2.setLayout(new GridLayout(2,1));
 		 jFrame.add(pan2, BorderLayout.CENTER);
-		 this.poster = new JLabel("영화 포스터");
+		 this.poster = new JLabel("");
 		 pan2.add(poster);
-		 this.movieInfo = new JLabel("영화 정보");
+		 this.movieInfo = new JLabel("");
 		 pan2.add(movieInfo);
 		 
-		
-		//보류.
-//		//포스터(위칸),영화정보(아래칸) 패널 생성
-//		JPanel pan2 = new JPanel();
-//		pan2.setLayout(new GridLayout(2,1)); 
-//		jFrame.add(pan2, BorderLayout.CENTER);
-//		JButton poster = new JButton("영화 포스터");
-//		pan2.add(poster);
-//		JButton movieInfo = new JButton("영화정보");
-//		pan2.add(movieInfo);
-		
-		 
-		
-		
 		
 		
 		//영화 버튼 누르면 해당 내용이 pan2의 poster, movieInfo 버튼들이 변화하도록 설정
 		 
-		//짱구 영화 정보
+		//짱구 영화 정보 출력
 		btn1.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//텍스트 출력
 				 try {
 					String crayon = Files.readString(Paths.get("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\CrayonShin_chan.txt"));
 					movieInfo.setText(crayon);
@@ -104,16 +87,16 @@ public class MovieInfo {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\짱구극장판.png"));
+				poster.setHorizontalAlignment(0);
 			}
 		});
 		
-		//블랙아담 버튼 누렀을 때 이벤트 처리
+		//블랙아담 영화 정보 출력
 		btn2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//텍스트 출력
 				try {
 					String blackAdam = Files.readString(Paths.get("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\BlackAdam.txt"));
 					movieInfo.setText(blackAdam);
@@ -124,16 +107,17 @@ public class MovieInfo {
 			}
 		});
 		
-		//영화 포스터 출력
+		//블랙아담 영화 포스터 출력
 		btn2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\블랙아담.jpg"));
+				poster.setHorizontalAlignment(0);
 			}
 		});
 		
-		//자백 버튼 누렀을 때 이벤트 처리
+		//자백 영화 정보 출력
 		btn3.addActionListener(new ActionListener() {
 			
 			@Override
@@ -148,16 +132,17 @@ public class MovieInfo {
 				
 			}
 		});
-		//영화 포스터 출력
+		//자백 영화 포스터 출력
 		btn3.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\자백.png"));
+				poster.setHorizontalAlignment(0);
 			}
 		});
 		
-		//고속도로 가족 버튼 누렀을 때 이벤트 처리
+		//고속도로 가족 영화 정보 출력
 		btn4.addActionListener(new ActionListener() {
 			
 			@Override
@@ -172,12 +157,13 @@ public class MovieInfo {
 				
 			}
 		});
-		//영화 포스터 출력
+		//고속도로 가족 포스터 출력
 		btn4.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\고속도로가족.png"));
+				poster.setHorizontalAlignment(0);
 			}
 		});
 		 

@@ -1,4 +1,4 @@
-package movieinformation;
+package com.project.movie;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
