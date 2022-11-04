@@ -36,6 +36,7 @@ public class ReservationConfirm {
 	public static void main(String[] args) {
 		
 		new ReservationConfirm();
+		
 	}
 
 }
