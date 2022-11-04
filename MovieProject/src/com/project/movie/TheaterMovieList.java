@@ -83,7 +83,7 @@ public class TheaterMovieList {
 		System.out.println(a);
 		System.out.println(b);
 
-		//영화리스트 버튼 위치 설정
+		//영화리스트 라벨 위치 설정
 		movie1.setBounds(50,50,210,30);
 		movie2.setBounds(50,170,122,30);
 		movie3.setBounds(50,290,122,30);
@@ -150,7 +150,7 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
+				
 				Reservation rv = new Reservation();
 				rv.Reserv();
 			}

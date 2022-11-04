@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,7 +17,9 @@ public class Theater {//현재 상영중인 영화
 	private String start; //시작시간 
 	private String finish; //끝시간
 	private boolean reserve; //예매여부 
-
+	
+	//예약정보저장 객체 (공용)
+	public static saveData locData = new saveData();
 
 	
 	Theater() {
@@ -72,11 +75,16 @@ public class Theater {//현재 상영중인 영화
 		//뒤로가기 버튼 삽입
 		jf.add(back);
 		
+		
+		
+		
 		//클릭했을 때 영화리스트 클래스로 이동
 		screen1.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				locData.setTheaterLocation("구로"); //ArrayList에 저장
+
 				new TheaterMovieList();
 				//창전환 설정
 				jf.setVisible(false);
@@ -87,6 +95,7 @@ public class Theater {//현재 상영중인 영화
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				locData.setTheaterLocation("동대문");
 				new TheaterMovieList();
 				jf.setVisible(false);
 			}
@@ -96,6 +105,7 @@ public class Theater {//현재 상영중인 영화
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				locData.setTheaterLocation("강남");
 				new TheaterMovieList();
 				jf.setVisible(false);
 			}
@@ -105,6 +115,7 @@ public class Theater {//현재 상영중인 영화
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				locData.setTheaterLocation("강변");
 				new TheaterMovieList();
 				jf.setVisible(false);
 			}
@@ -113,6 +124,7 @@ public class Theater {//현재 상영중인 영화
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				locData.setTheaterLocation("건대입구");
 				new TheaterMovieList();
 				jf.setVisible(false);
 			}

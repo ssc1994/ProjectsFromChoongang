@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
+import java.io.ObjectInputStream;
 import java.util.*;
 import java.util.List;
 
@@ -20,7 +21,9 @@ public class Reservation {//예매정보 객체
 	public int Seatcheck = 0;
 	public int Personcheck = 0;
 	static String cho = "";
-
+	
+	
+	
 	Calendar now1 = Calendar.getInstance();
 
 
@@ -142,15 +145,11 @@ public class Reservation {//예매정보 객체
 
 
 		res.addActionListener(new ActionListener() {
+			
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//				List<String> copiedList = new ArrayList<>(seatsNumber);
-				//				seatsNumber.add(cho)
-
-				Reservation r = new Reservation();
-				r.Reserv();
-				new Main();
+				new ReservationConfirm();
 				resFrame.setVisible(false);
 
 			}
