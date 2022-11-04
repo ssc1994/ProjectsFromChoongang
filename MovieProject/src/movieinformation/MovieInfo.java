@@ -74,7 +74,7 @@ public class MovieInfo {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				 try {
-					String crayon = Files.readString(Paths.get("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\MovieData\\CrayonShin_chan.txt"));
+					String crayon = Files.readString(Paths.get("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\CrayonShin_chan.txt"));
 					movieInfo.setText(crayon);
 				} catch (IOException e1) {
 					System.out.println(e.getActionCommand());
@@ -87,7 +87,7 @@ public class MovieInfo {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\MovieData\\짱구극장판.png"));
+				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\짱구극장판.png"));
 				poster.setHorizontalAlignment(0);
 			}
 		});
@@ -98,7 +98,7 @@ public class MovieInfo {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					String blackAdam = Files.readString(Paths.get("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\MovieData\\BlackAdam.txt"));
+					String blackAdam = Files.readString(Paths.get("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\BlackAdam.txt"));
 					movieInfo.setText(blackAdam);
 				} catch (IOException e1) {
 					System.out.println(e.getActionCommand());
@@ -112,7 +112,7 @@ public class MovieInfo {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\MovieData\\블랙아담.jpg"));
+				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\블랙아담.jpg"));
 				poster.setHorizontalAlignment(0);
 			}
 		});
@@ -124,7 +124,7 @@ public class MovieInfo {
 			public void actionPerformed(ActionEvent e) {
 				//텍스트 출력
 				try {
-					String confession = Files.readString(Paths.get("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\MovieData\\ConFession.txt"));
+					String confession = Files.readString(Paths.get("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\ConFession.txt"));
 					movieInfo.setText(confession);
 				} catch (IOException e1) {
 					System.out.println(e.getActionCommand());
@@ -137,7 +137,7 @@ public class MovieInfo {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\MovieData\\자백.png"));
+				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\자백.png"));
 				poster.setHorizontalAlignment(0);
 			}
 		});
@@ -149,7 +149,7 @@ public class MovieInfo {
 			public void actionPerformed(ActionEvent e) {
 				//텍스트 출력
 				try {
-					String highWayFamilly = Files.readString(Paths.get("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\MovieData\\HighWayFamilly.txt"));
+					String highWayFamilly = Files.readString(Paths.get("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\HighWayFamilly.txt"));
 					movieInfo.setText(highWayFamilly);
 				} catch (IOException e1) {
 					System.out.println(e.getActionCommand());
@@ -162,7 +162,7 @@ public class MovieInfo {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\MovieData\\고속도로가족.png"));
+				poster.setIcon(new ImageIcon("C:\\Users\\user\\git\\MovieProject\\MovieProject\\src\\movieinformation\\영화정보폴더\\고속도로가족.png"));
 				poster.setHorizontalAlignment(0);
 			}
 		});
