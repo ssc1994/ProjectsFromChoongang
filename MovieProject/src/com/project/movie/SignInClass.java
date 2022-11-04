@@ -42,7 +42,7 @@ public class SignInClass {
 				//기존에 있는 아이디 가져오기
 				BufferedReader bfr = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\login.txt"));
 				String line = bfr.readLine();
-				String eid = line.split(" ")[0];
+				String eid = line.split("\t")[0];
 				String eidlower=eid.toLowerCase();
 				//기존에 있는 아이디를 소문자로 변환한 것과 새로 입력한 아이디를 소문자로 변환한 것을 비교하기
 

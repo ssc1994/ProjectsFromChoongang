@@ -1,6 +1,5 @@
 package com.project.movie;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
@@ -65,7 +64,6 @@ public class Login {//회원가입한 고객 클래스
 				break;
 			}
 		}
-
 	}
 
 
@@ -95,3 +93,4 @@ public class Login {//회원가입한 고객 클래스
 
 
 }
+
