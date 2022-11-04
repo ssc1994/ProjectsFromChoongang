@@ -3,6 +3,8 @@ package com.project.movie;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,13 +30,24 @@ public class TheaterMovie4Time extends JFrame {
 		JButton movie4time4 = new JButton("18:50");
 		JButton movie4time5 = new JButton("21:20");
 		JButton movie4time6 = new JButton("23:50");
-
+		JButton back = new JButton("뒤로가기");
+		
 		this.add(movie4time1);
 		this.add(movie4time2);
 		this.add(movie4time3);
 		this.add(movie4time4);
 		this.add(movie4time5);
 		this.add(movie4time6);
+		this.add(back);
+		
+		back.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new TheaterMovieList();
+				setVisible(false);
+			}
+		});
 	}
 }
 

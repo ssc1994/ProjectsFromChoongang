@@ -7,4 +7,6 @@ public class Movie {// 영화 정보 클래스
 	 private int runTime; //러닝타임
 	 private Date release; //영화 개봉 날짜
 
+	 
+	 
 }
