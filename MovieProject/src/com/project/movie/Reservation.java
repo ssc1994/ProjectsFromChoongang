@@ -126,8 +126,7 @@ public class Reservation {//예매정보 객체
 				//				List<String> copiedList = new ArrayList<>(seatsNumber);
 				//				seatsNumber.add(cho)
 
-				new Reservation();
-				new Main();
+				new ReservationConfirm();
 				resFrame.setVisible(false);
 				seatsNumber.removeAll(seatsNumber);
 				seatsNumber.add("선택한 좌석 : ");

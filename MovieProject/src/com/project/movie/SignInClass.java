@@ -52,9 +52,7 @@ public class SignInClass {
 				}else{
 					System.out.println("아이디 생성이 가능합니다!");
 					this.Id=id;
-
 					signup.print(this.Id+"\t");
-
 					signup.flush();
 					signup.close();
 					bfr.close();
@@ -116,7 +114,6 @@ public class SignInClass {
 				}
 			}
 
-
 			//비밀번호 확인
 			while(true) {
 				System.out.print("비밀번호를 확인해주세요>");
@@ -164,7 +161,6 @@ public class SignInClass {
 				}
 				else{
 					this.Name=name;
-
 					signup.print(this.Name+"\t");
 					signup.flush();
 					break;
@@ -194,12 +190,5 @@ public class SignInClass {
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getLocalizedMessage());
 		}
-	}
-	public static void main(String[] args) {
-		SignInClass sg = new SignInClass();
-		
-		sg.setNameAge();
-		
-		
 	}
 }

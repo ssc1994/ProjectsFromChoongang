@@ -1,60 +1,44 @@
 package com.project.movie;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JOptionPane;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
-public class Main {
+public class Main extends JFrame{
+	public static SeatingInfo s = new SeatingInfo();
 
-	public static void main(String[] args) {
-
-		DateFormat sdFormat = new SimpleDateFormat("HH:mm");
-		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-		Date now = new Date();
-		String movie1time1_ = "17:50";
-		String time1 = "";
-		String tempDate = sdFormat.format(now);
-		try {
-			Date movie1_time1 = dateFormat.parse(movie1time1_);
-			time1 = sdFormat.format(movie1_time1);
-			
-			if(now.getTime() < movie1_time1.getTime()) {
-				JOptionPane.showMessageDialog(null, "이미 상영이 시작한 영화입니다!");
-			} else {
-				new TheaterMovieList();
-//				jf2.setVisible(false);
-			}
-			
-			
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		
-
-		System.out.println(time1);
-		System.out.println(tempDate);
-		System.out.println();
-		if(sdFormat.format(time1).compareTo(tempDate)>0)
-			System.out.println("<");
-			
-		else if(sdFormat.format(time1).compareTo(tempDate)<0) {
-			System.out.println(">");
-			
-		}else if(sdFormat.format(time1).compareTo(tempDate)==0)
-			System.out.println("=");
-		
-		;
-
-		
-		
-		
-		
-		
-
+	public Main() {
+//		JFrame resFrame = new JFrame();
+//		resFrame.setTitle("예매하기");
+//		resFrame.setSize(600,600);
+//		resFrame.setLocationRelativeTo(null);
+//		resFrame.setLayout(new FlowLayout());
+//
+//		JButton res = new JButton("예매");
+//		resFrame.add(res);
+//
+//		res.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				Reservation r = new Reservation();
+//				r.Reserv();
+//				resFrame.setVisible(false);
+//
+//			}
+//		});
+//
+//		resFrame.setVisible(true);
 
 	}
 
-}
+	public static void main(String[] args) {
+
+		new Main();
+	}
+
+		
+		

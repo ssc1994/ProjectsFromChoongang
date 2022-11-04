@@ -6,7 +6,11 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,10 +18,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class TheaterMovieList {
-	private String MovieName;
-	private String MovieTime;
-
-
 	TheaterMovieList() {
 		//프레임 선언
 		JFrame jf2 = new JFrame();
@@ -77,9 +77,11 @@ public class TheaterMovieList {
 		JButton movie4time6 = new JButton("23:50");
 
 		String a = movie1time1.getText();
+		String b = movie1time2.getText();
+		System.out.println(a);
+		System.out.println(b);
 
-
-		//영화리스트 버튼 위치 설정
+		//영화리스트 라벨 위치 설정
 		movie1.setBounds(50,50,210,30);
 		movie2.setBounds(50,170,122,30);
 		movie3.setBounds(50,290,122,30);
@@ -146,12 +148,10 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie1.getText();
-				MovieTime = movie1time1.getText();
+				Theater.locData.setMovvieName("수수께끼! 꽃피는 천하떡잎학교");
+				Theater.locData.setMovieTime("17:50");
 				new Reservation();
 				jf2.setVisible(false);
-
 			}
 
 		});
@@ -159,9 +159,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie1.getText();
-				MovieTime = movie1time2.getText();
+
+				Theater.locData.setMovvieName("수수께끼! 꽃피는 천하떡잎학교");
+				Theater.locData.setMovieTime("20:00");
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -170,9 +170,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie1.getText();
-				MovieTime = movie1time3.getText();
+
+				Theater.locData.setMovvieName("수수께끼! 꽃피는 천하떡잎학교");
+				Theater.locData.setMovieTime("22:10");
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -182,9 +182,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie2.getText();
-				MovieTime = movie2time1.getText();
+
+				Theater.locData.setMovvieName("자백");
+				Theater.locData.setMovieTime("19:40");
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -193,9 +193,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie2.getText();
-				MovieTime = movie2time2.getText();
+
+				Theater.locData.setMovvieName("자백");
+				Theater.locData.setMovieTime("22:20");
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -205,9 +205,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie3.getText();
-				MovieTime = movie3time1.getText();
+
+				Theater.locData.setMovvieName("고속도로 가족");
+				Theater.locData.setMovieTime("18:00");
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -216,9 +216,8 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie3.getText();
-				MovieTime = movie3time2.getText();
+				Theater.locData.setMovvieName("고속도로 가족");
+				Theater.locData.setMovieTime("22:50");
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -228,9 +227,8 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie4.getText();
-				MovieTime = movie4time1.getText();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("10:40");
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -239,9 +237,8 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie4.getText();
-				MovieTime = movie4time2.getText();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("13:20");
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -250,9 +247,8 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie4.getText();
-				MovieTime = movie4time3.getText();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("15:50");
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -261,9 +257,8 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie4.getText();
-				MovieTime = movie4time4.getText();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("18:50");
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -272,9 +267,8 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie4.getText();
-				MovieTime = movie4time5.getText();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("21:20");
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -283,9 +277,8 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				MovieName = movie4.getText();
-				MovieTime = movie4time6.getText();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("23:50");
 				new Reservation();
 				jf2.setVisible(false);
 			}
