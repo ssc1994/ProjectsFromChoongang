@@ -1,4 +1,4 @@
-package loginmypart;
+package com.project.movie;
 
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -9,10 +9,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+public class MainMenuSwing {
+	//이미지
 
-public class MainMenu {
-
-	MainMenu(){
+	//생성자
+	MainMenuSwing(){
 		JFrame j = new JFrame();
 		JPanel row1 = new JPanel();
 		JPanel row2 = new JPanel();
@@ -21,7 +22,8 @@ public class MainMenu {
 		JButton signinbutton = new JButton("<html><body><center>회원가입<br> <br>WELCOME!</center></body><html>");
 		Font font1=new Font("맑은고딕",Font.BOLD,15);
 
-
+		//이미지
+		
 		//프레임 조절
 		j.setTitle("LogIn/SignUp");//프레임 타이틀
 		j.setFont(font1);
@@ -41,18 +43,18 @@ public class MainMenu {
 		j.add(row1);
 		j.add(pan1);
 		j.add(row2);
-		
+
 		signinbutton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				j.setVisible(false);
-				new SignInClass2();
+				new SignInSwing();
 			}
 		});
-		
+
 		loginbutton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -60,33 +62,11 @@ public class MainMenu {
 				new LogInSwing();
 			}
 		});
-		
-		
-		
-		
-		
-		
+
 	}
 
-
-	
-	
-	
-	
-	
 	//실행용
 	public static void main(String[] args) {
-		new MainMenu();
+		new MainMenuSwing();
 	}
-
-
-
-
-
-
-
-
-
-
-
 }

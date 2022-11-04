@@ -1,7 +1,5 @@
-package loginmypart;
+package com.project.movie;
 
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class SignInClass2 {
+public class SignInSwing {
 	JFrame s;
 	private String Id=""; //아이디
 	private String Pw=""; //비밀번호
@@ -30,13 +28,14 @@ public class SignInClass2 {
 	JButton back = new JButton("뒤로가기");
 
 	//생성자
-	SignInClass2(){
+	SignInSwing(){
 		super();
 		setid();
 	}
 	//아이디메서드
 	public void setid(){
 		s = new JFrame();
+		
 		JPanel idpanel = new JPanel();
 		JTextField idtext = new JTextField(15);
 		JLabel idlabel = new JLabel("아이디입력");
@@ -47,14 +46,14 @@ public class SignInClass2 {
 		s.setFont(font1);
 		s.setSize(600,600);//프레임 사이즈 통일
 		s.setLocationRelativeTo(null);//언제나 가운데에 뜨기
-		s.setLayout(new FlowLayout());//프레임 사이즈 벗어나면 자동 줄바꿈
+		s.getContentPane().setLayout(null);//프레임 사이즈 벗어나면 자동 줄바꿈
 		idlabel.setLocation(100, 200);
 		idbutton.setFont(font1);
 
 
 		//add 아이디
+		idpanel.setBounds(0,20,600,50);
 		idpanel.add(idlabel);
-		idpanel.setPreferredSize(new Dimension(600,40));
 		idpanel.add(idtext);
 		idpanel.add(idbutton);
 		s.add(idpanel);
@@ -63,13 +62,15 @@ public class SignInClass2 {
 
 		//뒤로가기 버튼넣기
 		JPanel backpanel = new JPanel();
+		backpanel.setBounds(0,500,600,50);
 		backpanel.add(back);
 		s.add(backpanel);
-
+		
+		
 		back.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new MainMenu();
+				new MainMenuSwing();
 				s.setVisible(false);
 			}
 		});
@@ -79,8 +80,6 @@ public class SignInClass2 {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					//아이디 기록파일에 입력하기
-					signup = new PrintStream(new FileOutputStream("C:\\Users\\user\\Desktop\\login.txt",true));
 					//기존에 있는 아이디 가져오기
 					BufferedReader bfr = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\login.txt"));
 					String line = bfr.readLine();
@@ -105,7 +104,7 @@ public class SignInClass2 {
 					}else {
 						JOptionPane.showMessageDialog(null,"아이디 생성이 가능합니다!");
 						Id = idtext.getText();
-						signup.print(Id+"\t");
+//						signup.print(Id+"\t");
 						bfr.close();
 						s.setVisible(false);
 						if(!Id.equals("")) {
@@ -135,7 +134,8 @@ public class SignInClass2 {
 		pwbutton.setFont(font1);
 		pwpanel.add(pwlabel);
 		pwpanel.add(pwtext);
-		pwpanel.setPreferredSize(new Dimension(600,40));
+		
+		pwpanel.setBounds(0,70,600,50);
 		pwpanel.add(pwbutton);
 		s.add(pwpanel);
 		s.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//창이 닫히면 콘솔 종료
@@ -146,8 +146,6 @@ public class SignInClass2 {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					//비밀번호 기록파일에 입력하기
-					signup = new PrintStream(new FileOutputStream("C:\\Users\\user\\Desktop\\login.txt",true));
 
 					String pwordtemp="";
 					int countCapital=0;
@@ -183,9 +181,9 @@ public class SignInClass2 {
 						JTextField pw2text = new JTextField(15);
 						JLabel pw2label = new JLabel("입력한 비밀번호 확인");
 						JButton pw2button = new JButton("비밀번호 재확인");
-
+						
+						pw2panel.setBounds(0,120,600,50);
 						pw2panel.add(pw2label);
-						pw2panel.setPreferredSize(new Dimension(600,40));
 						pw2panel.add(pw2text);
 						pw2panel.add(pw2button);
 						s.add(pw2panel);
@@ -202,9 +200,6 @@ public class SignInClass2 {
 									}else {
 										JOptionPane.showMessageDialog(null,"비밀번호 생성이 가능합니다!");
 										Pw = pw2text.getText();
-										signup.print(Pw+"\t");
-										signup.flush();
-										signup.close();
 										s.setVisible(false);
 										if(Pw!=null) {
 											setname();
@@ -231,7 +226,7 @@ public class SignInClass2 {
 
 		//아이디, 비번 만들었으면 이름 넣기
 		namepanel.add(namelabel);
-		namepanel.setPreferredSize(new Dimension(600,40));
+		namepanel.setBounds(0,170,600,50);
 		namepanel.add(nametext);
 		namepanel.add(namebutton);
 		s.add(namepanel);
@@ -243,23 +238,19 @@ public class SignInClass2 {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					signup = new PrintStream(new FileOutputStream("C:\\Users\\user\\Desktop\\login.txt",true));
 					//이름 검사
 					if(!nametext.getText().matches("^[0-9a-zA-Z가-힣]*$")) {
 						JOptionPane.showMessageDialog(null,"이름의 형식이 잘못되었습니다");
 						nametext.setText(null);
 					}else {
 						Name=nametext.getText();
-						signup.print(Name+"\t");
-						signup.flush();
-						signup.close();
 						s.setVisible(false);
 						if(Name!=null) {
 							setage();
 						}
 
 					}
-				} catch (FileNotFoundException e1) {
+				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -277,7 +268,7 @@ public class SignInClass2 {
 
 		//나이 입력
 		agepanel.add(agelabel);
-		agepanel.setPreferredSize(new Dimension(600,40));
+		agepanel.setBounds(0,220,600,50);
 		agepanel.add(agetext);
 		agepanel.add(agebutton);
 		s.add(agepanel);
@@ -291,19 +282,23 @@ public class SignInClass2 {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
+					//아이디부터 나이까지 조건 다 맞으면 그때 저장
 					signup = new PrintStream(new FileOutputStream("C:\\Users\\user\\Desktop\\login.txt",true));
 					if(!agetext.getText().matches("^[0-9]*$")||Integer.parseInt(agetext.getText())<=0||Integer.parseInt(agetext.getText())>=300){
 						JOptionPane.showMessageDialog(null,"나이의 형식이 잘못되었습니다");
 						agetext.setText(null);
 					}else {
 						Age=agetext.getText();
+						signup.print(Id+"\t");
+						signup.print(Pw+"\t");
+						signup.print(Name+"\t");
 						signup.print(Age+"\r\n");
 						signup.flush();
 						signup.close();
 						JOptionPane.showMessageDialog(null,"회원가입완료!");
 
 						//회원가입 끝나면 메뉴창으로
-						new MainMenu();
+						new MainMenuSwing();
 						s.setVisible(false);
 					}
 				} catch (FileNotFoundException e1) {
@@ -317,6 +312,6 @@ public class SignInClass2 {
 
 	//확인용 메인
 	public static void main(String[] args) {
-		new SignInClass2();
+		new SignInSwing();
 	}
 }

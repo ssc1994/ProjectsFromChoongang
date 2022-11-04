@@ -1,4 +1,4 @@
-package loginmypart;
+package com.project.movie;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -30,7 +30,7 @@ public class LogInSwing {
 	private String InfoName;
 	private String InfoAge;
 	//뒤로가기
-//	JButton back = new JButton("뒤로가기");
+	JButton back = new JButton("뒤로가기");
 
 	
 
@@ -61,7 +61,7 @@ public class LogInSwing {
 
 	public void myLogin() {
 		JFrame l = new JFrame();
-		l.setTitle("회원가입2");//프레임 타이틀
+		l.setTitle("로그인");//프레임 타이틀
 		l.setFont(font1);
 		l.setSize(600,600);//프레임 사이즈 통일
 		l.setLocationRelativeTo(null);//언제나 가운데에 뜨기
@@ -97,9 +97,9 @@ public class LogInSwing {
 		l.add(loginbuttonpanel);
 
 		//뒤로가기 버튼넣기
-//		JPanel backpanel = new JPanel();
-//		backpanel.add(back);
-//		l.add(backpanel);
+		JPanel backpanel = new JPanel();
+		backpanel.add(back);
+		l.add(backpanel);
 		
 		
 		loginbutton.addActionListener(new ActionListener() {
@@ -124,13 +124,13 @@ public class LogInSwing {
 			}
 		});
 		
-//		back.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				new MainMenu();
-//				l.setVisible(false);
-//			}
-//		});
+		back.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new MainMenuSwing();
+				l.setVisible(false);
+			}
+		});
 		
 	}
 	
