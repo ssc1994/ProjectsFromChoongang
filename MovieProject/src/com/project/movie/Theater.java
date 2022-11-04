@@ -83,7 +83,7 @@ public class Theater {//현재 상영중인 영화
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				locData.setTheaterLocation("구로"); //ArrayList에 저장
+				locData.setTheaterLocation("구로"); 
 
 				new TheaterMovieList();
 				//창전환 설정

@@ -27,18 +27,18 @@ public class ReservationConfirm {
       JLabel seat = new JLabel("좌석: ");
       
       JLabel theaterInfo = new JLabel(Theater.locData.getTheaterLocation());
-      JLabel movieInfo = new JLabel("영화: ");
-      JLabel timeInfo = new JLabel("상영시간: ");
+      JLabel movieInfo = new JLabel(Theater.locData.getMovvieName());
+      JLabel timeInfo = new JLabel(Theater.locData.getMovieTime());
       JLabel seatInfo = new JLabel("좌석: ");
       
       theaterConfirm.add(theater);
       theaterConfirm.add(theaterInfo);
-      movieConfirm.add(movieInfo);
       movieConfirm.add(movie);
-      timeConfirm.add(timeInfo);
+      movieConfirm.add(movieInfo);
       timeConfirm.add(time);
-      seatConfirm.add(seatInfo);
+      timeConfirm.add(timeInfo);
       seatConfirm.add(seat);
+      seatConfirm.add(seatInfo);
       
       theaterConfirm.setBounds(30,50,200,30);
       movieConfirm.setBounds(30,170,200,30);

@@ -150,9 +150,10 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				Reservation rv = new Reservation();
-				rv.Reserv();
+				Theater.locData.setMovvieName("수수께끼! 꽃피는 천하떡잎학교");
+				Theater.locData.setMovieTime("17:50");
+				new Reservation();
+				jf2.setVisible(false);
 			}
 
 		});
@@ -160,9 +161,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				Reservation rv = new Reservation();
-				rv.Reserv();
+				Theater.locData.setMovvieName("수수께끼! 꽃피는 천하떡잎학교");
+				Theater.locData.setMovieTime("20:00");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -170,8 +171,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				Theater.locData.setMovvieName("수수께끼! 꽃피는 천하떡잎학교");
+				Theater.locData.setMovieTime("22:10");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -180,8 +182,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				Theater.locData.setMovvieName("자백");
+				Theater.locData.setMovieTime("19:40");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -189,8 +192,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				Theater.locData.setMovvieName("자백");
+				Theater.locData.setMovieTime("22:20");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -199,8 +203,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				Theater.locData.setMovvieName("고속도로 가족");
+				Theater.locData.setMovieTime("18:00");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -208,8 +213,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				Theater.locData.setMovvieName("고속도로 가족");
+				Theater.locData.setMovieTime("22:50");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -218,8 +224,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("10:40");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -227,8 +234,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("13:20");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -236,8 +244,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("15:50");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -245,8 +254,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("18:50");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -254,8 +264,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("21:20");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
@@ -263,8 +274,9 @@ public class TheaterMovieList {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/////////나중에 다음 페이지 추가해야함///////////
-				new TheaterMovieList();
+				Theater.locData.setMovvieName("블랙 아담");
+				Theater.locData.setMovieTime("23:50");
+				new Reservation();
 				jf2.setVisible(false);
 			}
 		});
