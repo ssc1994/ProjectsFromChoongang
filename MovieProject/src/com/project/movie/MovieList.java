@@ -1,4 +1,4 @@
-package movieinformation;
+package com.project.movie;
 
 import java.io.IOException;
 import java.nio.file.Files;
