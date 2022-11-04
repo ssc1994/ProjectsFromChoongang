@@ -14,6 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class TheaterMovieList {
+	private String MovieName;
+	private String MovieTime;
+
+
 	TheaterMovieList() {
 		//프레임 선언
 		JFrame jf2 = new JFrame();
@@ -143,28 +147,10 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
-
-				//시간 설정
-				String movie1time1_ = "17:50";
-
-				try {
-					Date now = new Date();
-					SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-					Date movie1_time1 = dateFormat.parse(movie1time1_);
-
-					if(now.getTime() > movie1_time1.getTime()) {
-						JOptionPane.showMessageDialog(null, "이미 상영이 시작한 영화입니다!");
-					} else {
-						new Reservation();
-						jf2.setVisible(false);
-					}
-
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-
-
-
+				MovieName = movie1.getText();
+				MovieTime = movie1time1.getText();
+				new Reservation();
+				jf2.setVisible(false);
 
 			}
 
@@ -174,6 +160,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie1.getText();
+				MovieTime = movie1time2.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -183,6 +171,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie1.getText();
+				MovieTime = movie1time3.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -193,6 +183,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie2.getText();
+				MovieTime = movie2time1.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -202,6 +194,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie2.getText();
+				MovieTime = movie2time2.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -212,6 +206,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie3.getText();
+				MovieTime = movie3time1.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -221,6 +217,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie3.getText();
+				MovieTime = movie3time2.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -231,6 +229,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie4.getText();
+				MovieTime = movie4time1.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -240,6 +240,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie4.getText();
+				MovieTime = movie4time2.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -249,6 +251,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie4.getText();
+				MovieTime = movie4time3.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -258,6 +262,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie4.getText();
+				MovieTime = movie4time4.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -267,6 +273,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie4.getText();
+				MovieTime = movie4time5.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
@@ -276,6 +284,8 @@ public class TheaterMovieList {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/////////나중에 다음 페이지 추가해야함///////////
+				MovieName = movie4.getText();
+				MovieTime = movie4time6.getText();
 				new Reservation();
 				jf2.setVisible(false);
 			}
