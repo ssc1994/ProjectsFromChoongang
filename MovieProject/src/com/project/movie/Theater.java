@@ -15,12 +15,6 @@ import javax.swing.JOptionPane;
 
 
 public class Theater {//현재 상영중인 영화
-	private MovieList movie; //영화 정보
-
-	private int round; //회차 정보
-	private String start; //시작시간 
-	private String finish; //끝시간
-	private boolean reserve; //예매여부 
 
 
 	//예약정보저장 객체 (공용)
