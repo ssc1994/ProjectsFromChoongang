@@ -10,7 +10,7 @@ import javax.swing.*;
 public class Reservation {//예매정보 객체
 	//	 private Person person; //예매한 고객을 ID로 분류하고 회원정보에서 찾아서 가져옴
 	private JCheckBox[][] seats = new JCheckBox[7][10];  //예매한 좌석
-	private static List<String> seatsNumber = new ArrayList<>();
+	public static List<String> seatsNumber = new ArrayList<>();
 	private static List<String> seatsNumberSave = new ArrayList<>();
 	public int Seatcheck = 0;
 	public int Personcheck = 0;

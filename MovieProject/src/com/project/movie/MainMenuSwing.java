@@ -64,6 +64,7 @@ public class MainMenuSwing {
 		});
 
 	}
+	
 
 	//실행용
 	public static void main(String[] args) {

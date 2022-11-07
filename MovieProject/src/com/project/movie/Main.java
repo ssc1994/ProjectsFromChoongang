@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class Main extends JFrame{
+public class Main{
 	public static SeatingInfo s = new SeatingInfo();
 
 	public Main() {
@@ -37,7 +37,7 @@ public class Main extends JFrame{
 
 	public static void main(String[] args) {
 
-		new Main();
+		new MainMenuSwing();
 	}
 }
 

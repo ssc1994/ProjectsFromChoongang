@@ -29,7 +29,7 @@ public class ReservationConfirm {
       JLabel theaterInfo = new JLabel(Theater.locData.getTheaterLocation());
       JLabel movieInfo = new JLabel(Theater.locData.getMovvieName());
       JLabel timeInfo = new JLabel(Theater.locData.getMovieTime());
-      JLabel seatInfo = new JLabel("좌석: ");
+      JLabel seatInfo = new JLabel(Reservation.seatsNumber.toString());
       
       theaterConfirm.add(theater);
       theaterConfirm.add(theaterInfo);
@@ -40,10 +40,10 @@ public class ReservationConfirm {
       seatConfirm.add(seat);
       seatConfirm.add(seatInfo);
       
-      theaterConfirm.setBounds(30,50,200,30);
-      movieConfirm.setBounds(30,170,200,30);
-      timeConfirm.setBounds(30,290,200,30);
-      seatConfirm.setBounds(30,410,200,30);
+      theaterConfirm.setBounds(30,50,500,30);
+      movieConfirm.setBounds(30,170,500,30);
+      timeConfirm.setBounds(30,290,500,30);
+      seatConfirm.setBounds(30,410,500,30);
       
       
       
