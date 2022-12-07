@@ -41,7 +41,7 @@ public class LogInSwing {
 	public LogInSwing() {
 		try {
 			//아이디, 이름, 나이 저장된 파일에서 가져와서 map에 저장
-			BufferedReader bfr = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\login.txt"));
+			BufferedReader bfr = new BufferedReader(new FileReader("C:/Users/user/git/MovieProject/MovieProject/movieprojectmain/movieinformation/영화정보폴더/login.txt"));
 			while(true) {	
 				this.line = bfr.readLine();
 				if(line==null) break;
