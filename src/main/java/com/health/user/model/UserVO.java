@@ -10,13 +10,13 @@ public class UserVO {
 	private int kg;
 	private String email;
 	private int progress;
-	private int key;
+	private int rno;
 	
 	public UserVO() {
 
 	}
 
-	public UserVO(int uno, String name, String id, String pw, int cm, int kg, String email, int progress, int key) {
+	public UserVO(int uno, String name, String id, String pw, int cm, int kg, String email, int progress, int rno) {
 		super();
 		this.uno = uno;
 		this.name = name;
@@ -26,7 +26,7 @@ public class UserVO {
 		this.kg = kg;
 		this.email = email;
 		this.progress = progress;
-		this.key = key;
+		this.rno = rno;
 	}
 
 	public int getUno() {
@@ -93,12 +93,12 @@ public class UserVO {
 		this.progress = progress;
 	}
 
-	public int getKey() {
-		return key;
+	public int getRno() {
+		return rno;
 	}
 
-	public void setKey(int key) {
-		this.key = key;
+	public void setRno(int rno) {
+		this.rno = rno;
 	}
 	
 	
