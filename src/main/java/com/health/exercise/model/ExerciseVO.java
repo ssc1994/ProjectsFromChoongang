@@ -2,7 +2,7 @@ package com.health.exercise.model;
 
 public class ExerciseVO {
 	
-	private int eno;
+	
 	private String ename;
 	private int sets;
 	private String econtent;
@@ -11,21 +11,16 @@ public class ExerciseVO {
 	
 	public ExerciseVO() {}
 	
-	public ExerciseVO(int eno, String ename, int sets, String econtent, int base, int rno) {
+	public ExerciseVO(String ename, int sets, String econtent, int base, int rno) {
 		super();
-		this.eno = eno;
+		
 		this.ename = ename;
 		this.sets = sets;
 		this.econtent = econtent;
 		this.base = base;
 		this.rno = rno;
 	}
-	public int getEno() {
-		return eno;
-	}
-	public void setEno(int eno) {
-		this.eno = eno;
-	}
+	
 	public String getEname() {
 		return ename;
 	}
