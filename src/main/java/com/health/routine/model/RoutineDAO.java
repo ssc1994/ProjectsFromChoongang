@@ -1,14 +1,13 @@
-package com.health.exercise.model;
+package com.health.routine.model;
 
-import java.util.ArrayList;
 
 import com.health.util.UtilClose;
 
-public class ExerciseDAO {
+public class RoutineDAO {
 	
-	private static ExerciseDAO instance = new ExerciseDAO(); 
-
-	public ExerciseDAO() {
+	private static RoutineDAO instance = new RoutineDAO();
+	
+	public RoutineDAO() {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -16,9 +15,10 @@ public class ExerciseDAO {
 			System.out.println("드라이버 클래스 로드 에러");
 		}
 		
+		
 	}
-
-	public static ExerciseDAO getInstance() {
+	
+	public static RoutineDAO getInstance() {
 		return instance;
 	}
 	
@@ -26,12 +26,13 @@ public class ExerciseDAO {
 	public static final String UID = "health";
 	public static final String UPW = "health";
 	
-	public ArrayList<ExerciseVO> getExercise(String ename, int sets, String econtent, int base, int rno){
-		ArrayList<ExerciseVO> list = null;
+	public int getRoutine(int idno) {
 		
-		String sql="";
+		int result = 0;
+		String sql ="";
 		
 		try {
+		
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -41,9 +42,8 @@ public class ExerciseDAO {
 		
 		
 		
-		return list;
-		
-		
+		return result;
 	}
+	
 
 }

@@ -1,10 +1,10 @@
 package com.health.routine.model;
 
-public class routineVO {
+public class RoutineVO {
 	
 	private int routine;
 
-	public routineVO() {
+	public RoutineVO() {
 	}
 
 	public int getRoutine() {
