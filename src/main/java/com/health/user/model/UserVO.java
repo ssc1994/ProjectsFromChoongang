@@ -9,14 +9,13 @@ public class UserVO {
 	private int cm;
 	private int kg;
 	private String email;
-	private int progress;
 	private int rno;
 	
 	public UserVO() {
 
 	}
 
-	public UserVO(int uno, String name, String id, String pw, int cm, int kg, String email, int progress, int rno) {
+	public UserVO(int uno, String name, String id, String pw, int cm, int kg, String email, int rno) {
 		super();
 		this.uno = uno;
 		this.name = name;
@@ -25,7 +24,6 @@ public class UserVO {
 		this.cm = cm;
 		this.kg = kg;
 		this.email = email;
-		this.progress = progress;
 		this.rno = rno;
 	}
 
@@ -83,14 +81,6 @@ public class UserVO {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public int getProgress() {
-		return progress;
-	}
-
-	public void setProgress(int progress) {
-		this.progress = progress;
 	}
 
 	public int getRno() {
