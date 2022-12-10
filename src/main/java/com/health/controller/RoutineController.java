@@ -36,6 +36,19 @@ public class RoutineController extends HttpServlet {
 		
 		RoutineService service = new RoutineServiceImpl();
 		HttpSession session = request.getSession();
+		
+		switch (command) {
+		case "/routine/routine_info.routine":
+			session.setAttribute("chooseroutine",service.getRoutine(request, response));
+			
+			request.getRequestDispatcher("routine_info.jsp").forward(request, response);
+			break;
+			
+		default:
+			break;
+		}
+		
+		
 	}
 
 }
