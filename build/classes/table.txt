@@ -1,0 +1,77 @@
+CREATE TABLE exercise (
+   ename   varchar2(40)      NULL,
+   sets   number(2)      NULL,
+   econtent   varchar2(100)      NULL,
+   base   number(3)      NULL,
+   rno   number(1)      NOT NULL
+);
+
+CREATE TABLE exerciseinfo (
+   uno   number(5)      NOT NULL,
+   echeck   number(1)      NULL
+);
+
+CREATE TABLE info (
+   ino   number(3)      NOT NULL,
+   ititle   varchar2(100)      NULL,
+   icontent   varchar2(500)      NULL,
+   uno   number(5)      NOT NULL
+);
+
+CREATE TABLE users (
+   uno   number(5)      NOT NULL,
+   name   varchar2(10)      NULL,
+   id   varchar2(15)      NULL,
+   pw   varchar2(20)      NULL,
+   cm   number(3)      NULL,
+   kg   number(3)      NULL,
+   email   varchar(20)      NULL,
+   progress   number(1)      NULL,
+   rno   number(1)      NOT NULL
+);
+
+CREATE TABLE routine (
+   rno   number(1)      NOT NULL
+);
+
+CREATE TABLE board (
+   bno   number(5)      NOT NULL,
+   btitle   varchar2(100)      NULL,
+   bcontent   varchar2(500)      NULL,
+   regdate   date      NULL,
+   hit   number(3)      NULL,
+   uno   number(5)      NOT NULL
+);
+
+CREATE TABLE calendar (
+   dayno   number(2)      NOT NULL,
+   uno   number(5)      NOT NULL
+);
+
+ALTER TABLE exercise ADD CONSTRAINT PK_EXERCISE PRIMARY KEY (
+   eno
+);
+
+ALTER TABLE exerciseinfo ADD CONSTRAINT PK_EXERCISEINFO PRIMARY KEY (
+   uno
+);
+
+ALTER TABLE info ADD CONSTRAINT PK_INFO PRIMARY KEY (
+   ino
+);
+
+ALTER TABLE users ADD CONSTRAINT PK_USERS PRIMARY KEY (
+   uno
+);
+
+ALTER TABLE routine ADD CONSTRAINT PK_ROUTINE PRIMARY KEY (
+   key
+);
+
+ALTER TABLE board ADD CONSTRAINT PK_BOARD PRIMARY KEY (
+   bno
+);
+
+ALTER TABLE calendar ADD CONSTRAINT PK_CALENDAR PRIMARY KEY (
+   dayno
+);
