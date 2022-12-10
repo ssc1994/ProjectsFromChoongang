@@ -1,6 +1,6 @@
 package com.health.board.model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class BoardVO {
 
@@ -9,18 +9,18 @@ public class BoardVO {
 	private String bcontent;
 	private Timestamp regdate;
 	private int hit;
-	private int uno;
+	private String bid;
 	
 	public BoardVO() {
 	}
-	public BoardVO(int bno, String btitle, String bcontent, Timestamp regdate, int hit, int uno) {
+	public BoardVO(int bno, String btitle, String bcontent, Timestamp regdate, int hit, String bid) {
 		super();
 		this.bno = bno;
 		this.btitle = btitle;
 		this.bcontent = bcontent;
 		this.regdate = regdate;
 		this.hit = hit;
-		this.uno = uno;
+		this.bid = bid;
 	}
 	public int getBno() {
 		return bno;
@@ -52,11 +52,11 @@ public class BoardVO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	public int getUno() {
-		return uno;
+	public String getbid() {
+		return bid;
 	}
-	public void setUno(int uno) {
-		this.uno = uno;
+	public void setbid(String bid) {
+		this.bid = bid;
 	}
 	
 	
