@@ -37,13 +37,12 @@ public class ExerciseinfoDAO {
 	
 	public void ExInsert(String exeno1,String exeno2,String exeno3,String exeno4,String exeno5,String exeno6,String id,String routine) {
 	
-		String sql = inse
+		String sql = "";
 		
 		try {
 			conn = DriverManager.getConnection(URL, UID, UPW);
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.set
 			
 			
 		} catch (SQLException e) {
