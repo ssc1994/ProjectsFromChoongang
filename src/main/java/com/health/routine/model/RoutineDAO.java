@@ -27,9 +27,9 @@ public class RoutineDAO {
 		return instance;
 	}
 	
-	public static final String URL = "jdbc:oracle:thin:@172.30.1.39:1521:xe";
-	public static final String UID = "health";
-	public static final String UPW = "health";
+	public static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	public static final String UID = "healthtest";
+	public static final String UPW = "healthtest";
 	
 	private Connection conn;
 	private PreparedStatement pstmt;
@@ -38,6 +38,7 @@ public class RoutineDAO {
 	public int getRoutine(int rno) {
 		String sql ="select rno from routine where rno=?";
 		 int result = 0;
+		 
 		try {
 			conn=DriverManager.getConnection(URL, UID, UPW);
 			
@@ -47,7 +48,7 @@ public class RoutineDAO {
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
-				result = rs.getInt("rno");
+				result = rs.getInt("rno");//db에서 가져온 값을 저장
 			}
 			
 		} catch (Exception e) {
@@ -55,7 +56,7 @@ public class RoutineDAO {
 		}finally {
 			UtilClose.close(conn, pstmt, rs);
 		}
-		return result;
+		return result;//db값 반환
 	}
 	
 
