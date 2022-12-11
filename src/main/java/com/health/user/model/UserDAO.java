@@ -25,7 +25,7 @@ public class UserDAO {
 		return instance;
 	}
 
-	public String URL = "jdbc:oracle:thin:@172.30.1.39:1521:xe";
+	public String URL = "jdbc:oracle:thin:@172.30.1.12:1521:xe";
 	public String UID = "health";
 	public String UPW = "health";
 	
@@ -92,7 +92,8 @@ public class UserDAO {
 	}
 	
 	public UserVO login(String id, String pw) {
-		UserVO vo = new UserVO();
+		
+		UserVO vo = null;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -131,6 +132,112 @@ public class UserDAO {
 		
 		return vo;
 	}
+	
+	public UserVO getInfo(String id) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		UserVO vo = null;
+		
+		String sql = "select * from users where id = ?";
+		
+		try {
+			
+			conn = DriverManager.getConnection(URL, UID, UPW);
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				String name = rs.getString("name");
+				String id2 = rs.getString("id");
+				String pw = rs.getString("pw");
+				int cm = rs.getInt("cm");
+				int kg = rs.getInt("kg");
+				String email = rs.getString("email");
+				int rno = rs.getInt("rno");
+				
+				vo = new UserVO(0, name, id2, pw, cm, kg, email, rno);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			UtilClose.close(conn, pstmt, rs);
+		}
+		
+		return vo;
+	}
+	
+	public int update(String pw, int cm, int kg, String email, int rno, String id) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int result = 0;
+		
+		String sql = "update users set pw = ?, cm = ?, kg = ?, email = ?, rno = ? where id = ?";
+		
+		try {
+			
+			conn = DriverManager.getConnection(URL, UID, UPW);
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pw);
+			pstmt.setInt(2, cm);
+			pstmt.setInt(3, kg);
+			pstmt.setString(4, email);
+			pstmt.setInt(5, rno);
+			pstmt.setString(6, id);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			UtilClose.close(conn, pstmt, rs);
+		}
+		
+		
+		return result;
+	}
+	
+	public int delete(String id) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int result = 0;
+
+		String sql = "delete from users where id = ?";
+		
+		try {
+			
+			conn = DriverManager.getConnection(URL, UID, UPW);
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			UtilClose.close(conn, pstmt, rs);
+		}
+		return result;
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
