@@ -54,7 +54,7 @@ public class BoardDAO {
 	}
 	
 	public BoardVO getContent(String bno) {
-		String sql = "SELECT * FROM board WHERE bno=?";
+		String sql = "SELECT * FROM board WHERE bno=? ";
 		BoardVO vo = null;
 		try {
 			conn=DriverManager.getConnection(URL, UID, UPW);
@@ -99,7 +99,7 @@ public class BoardDAO {
 		
 		ArrayList<BoardVO> list =  new ArrayList<>();
 		
-		String sql = "SELECT * FROM board ORDER BY bno DESC";
+		String sql = "SELECT * FROM board where bno<50 and bno>43 ORDER BY bno DESC";
 			
 		try {
 			conn=DriverManager.getConnection(URL, UID, UPW);
@@ -168,7 +168,7 @@ public class BoardDAO {
 
 		ArrayList<BoardVO> list = new ArrayList<>();
 
-		String sql = "select * from STORE where btitle like ?";
+		String sql = "select * from board where btitle like ?";
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");

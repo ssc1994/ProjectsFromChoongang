@@ -108,12 +108,17 @@ public class BoardController extends HttpServlet {
 		
 		break;
 		
-	case "/board/board_search.board":
+	case "/board/board_searchForm.board":
 		ArrayList<BoardVO> searchList = service.search(request, response);
 		request.setAttribute("list", searchList);
 		
-		request.getRequestDispatcher("board_list.board").forward(request, response);
+		request.getRequestDispatcher("board_search.board").forward(request, response);
 		
+		break;
+		
+	case "/board/board_search.board":
+		
+		request.getRequestDispatcher("board_search.jsp").forward(request, response);
 		break;
 
 		default:

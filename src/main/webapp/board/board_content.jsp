@@ -5,10 +5,10 @@
 
 <%@ include file="../include/header.jsp" %>
 
-<div align="center" class="div_center">
+<div align="center" class="div_center" style="color: white">
 	<h3> 게시글 상세 페이지</h3>
 	<hr/>
-	 <table width="550" border =1 >
+	 <table width="550" border =1  class ="tabstyle">
 	 	<tr align="center">
 	 		<td width ="20%">
 	 			 글번호

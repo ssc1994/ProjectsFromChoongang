@@ -5,15 +5,14 @@
 
 <%@ include file="../include/header.jsp" %>
 
-<h3> 게시글 수정 페이지</h3>
 
-<div align="center" class="div_center">
+<div align="center" class="div_center" style="color: white">
 	<h3>게시판 글 수정 페이지</h3>
 	<hr>
 	
 	<form action="board_modifyForm.board" method="post">
 		
-		<table border="1" width="500">
+		<table border=1 width="500" class ="tabstyle">
 			
 			<tr>
 				<td>글 번호</td>
