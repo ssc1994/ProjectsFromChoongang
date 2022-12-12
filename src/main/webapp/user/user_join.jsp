@@ -3,14 +3,14 @@
 <%@ include file="../include/header.jsp"%>
 
 <section>
-	<div align="center">
+	<div align="center" style="color: white">
 		<h3>회원가입</h3>
 		
 		<form action="joinForm.user" method="post">
 		
 		<span style="color: red;"> ${msg }</span>
 		
-			<table>
+			<table style="color: white">
 				<tr>
 					<td>아이디</td>
 					<td>
@@ -56,17 +56,17 @@
 				<tr>
 					<td>루틴 선택</td>
 					<td>
-						<input type="radio" name="rno" required="required" value="3">3분할
-						<input type="radio" name="rno" required="required" value="4">4분할
-						<input type="radio" name="rno" required="required" value="5">5분할
-						<input type="radio" name="rno" required="required" value="0">무분할
+						<input type="radio" name="rno" required="required" value="3" ${sessionScope.rno == 3?'checked':''}>3분할
+						<input type="radio" name="rno" required="required" value="4" ${sessionScope.rno == 4?'checked':''}>4분할
+						<input type="radio" name="rno" required="required" value="5" ${sessionScope.rno == 5?'checked':''}>5분할
+						<input type="radio" name="rno" required="required" value="0" ${sessionScope.rno == 0?'checked':''} ${sessionScope.rno == null? 'checked':'' }>무분할
 					</td>
 				</tr>
 				
 			</table>
 	
-			<input type="submit" value="가입">
-			<input type="button" value="로그인하기" onclick="location.href='user_login.user'">
+			<input type="submit" value="가입" class="btn btn-success">
+			<input type="button" value="로그인하기" onclick="location.href='user_login.user'" class="btn btn-success">
 		
 		</form>
 		

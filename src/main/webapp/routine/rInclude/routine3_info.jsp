@@ -1,37 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<div>
-			<h3>3분할</h3>
-			<table class="table table-bordered">
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-				<thead>
-					<tr>
-						<th>DAY</th>
-						<th>운동명</th>
-						<th>세트</th>
-						<th>운동설명</th>
-						<th>기본무게</th>
-					</tr>
-				</thead>
+<div align="center" style="color: white">
+	<h3>3분할</h3>
+	<table class="table table-bordered" style="width: 80%;" style="color: white">
+
+		<thead class="tabstyle">
+			<tr>
+				<th>DAY</th>
+				<th>운동명</th>
+				<th>세트</th>
+				<th>운동설명</th>
+				<th>기본무게</th>
+			</tr>
+		</thead>
 
 
-				<tbody>
-					<tr>
-						<c:forEach var="vo" items="${sessionScope.exerciselist }">
-							<c:forEach var="i" begin="1" end="${vo.rdayno }">
-									<c:if test="${vo.rno eq 3 and vo.rdayno eq i }">
-										<tr>
-											<td>day${vo.rdayno}</td>
-											<td>${vo.ename }</td>
-											<td>${vo.sets }</td>
-											<td>${vo.econtent }</td>
-											<td>${vo.base }</td>
-										</tr>
-									</c:if>
-								</c:forEach>
-						</c:forEach>
-				</tbody>
-			</table>
-	</div>
-	
+		<tbody class="tabstyle">
+			<tr>
+				<c:forEach var="vo" items="${sessionScope.exerciselist }">
+					<c:forEach var="i" begin="1" end="${vo.rdayno }">
+						<c:if test="${vo.rno eq 3 and vo.rdayno eq i }">
+							<tr>
+								<td>day${vo.rdayno}</td>
+								<td>${vo.ename }</td>
+								<td>${vo.sets }</td>
+								<td>${vo.econtent }</td>
+								<td>${vo.base }</td>
+							</tr>
+						</c:if>
+					</c:forEach>
+				</c:forEach>
+		</tbody>
+	</table>
+</div>

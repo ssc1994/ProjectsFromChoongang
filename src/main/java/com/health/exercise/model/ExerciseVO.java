@@ -1,7 +1,14 @@
 package com.health.exercise.model;
 
-public class ExerciseVO {
+import java.io.Serializable;
+
+public class ExerciseVO implements Serializable{
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private String ename;
 	private int sets;
