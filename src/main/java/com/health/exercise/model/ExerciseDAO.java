@@ -26,9 +26,9 @@ public class ExerciseDAO {
 		return instance;
 	}
 	
-	public static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
-	public static final String UID = "healthtest";
-	public static final String UPW = "healthtest";
+	public static final String URL = "jdbc:oracle:thin:@172.30.1.27:1521:xe";
+	public static final String UID = "health";
+	public static final String UPW = "health";
 	
 	private Connection conn;
 	private PreparedStatement pstmt;
@@ -37,7 +37,7 @@ public class ExerciseDAO {
 	public ArrayList<ExerciseVO> getExercise(int rno){
 		ArrayList<ExerciseVO> list = new ArrayList<>();
 		
-		String sql="select * from routine r left outer join exercise e on r.rno = e.rno where r.rno=?";
+		String sql="select * from routine r left outer join exercise e on r.rno = e.rno where r.rno=? order by rdayno";
 		
 		try {
 			conn=DriverManager.getConnection(URL, UID, UPW);
