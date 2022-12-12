@@ -4,9 +4,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <section>
-	<div>
+	<div align="center" style="color: white">
 		<h3 align="center">운동루틴 정보</h3>
-		<form align="center" action="routineForm.routine" method="post">
+		<form action="routineForm.routine" method="post" style="color: white">
 			<input type="radio" name="routine" value="3"
 				${sessionScope.rno == 3?'checked':''}>3분할 <input
 				type="radio" name="routine" value="4"
@@ -15,9 +15,14 @@
 				${sessionScope.rno == 5?'checked':''}>5분할 <input
 				type="radio" name="routine" value="0"
 				${sessionScope.rno == 0?'checked':''}
-				${sessionScope.rno == null? 'checked':'' }>무분할 <input
-				type="submit" value="확인">
+				${sessionScope.rno == null? 'checked':'' }>무분할 
+				<input type="submit" value="확인" class="btn btn-success">
 		</form>
+	</div>
+</section>
+<section>
+	<div align="center" >
+	<input type="button" value="회원가입" class="btn btn-success" onclick="location.href='../user/user_join.user'">
 	</div>
 </section>
 <%--무분할 페이지가 홈페이지 --%>
@@ -40,9 +45,8 @@
 		<c:when test="${sessionScope.rno==5}">
 			<%@ include file="rInclude/routine5_info.jsp"%>
 		</c:when>
-
 		<c:otherwise>
-			<%@ include file="rInclude/routine0_info.jsp"%>
+			<%@ include file="rInclude/routineinfohome_info.jsp"%>
 		</c:otherwise>
 	</c:choose>
 
