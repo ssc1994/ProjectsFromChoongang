@@ -11,7 +11,7 @@
 			<span style="color: red;">${msg }</span>
 			<table>
 				<tr>
-					<td>오늘의운동1</td>
+					<td>운동명:스쿼트 세트:3 횟수 15</td>
 					<td><input type="checkbox" name="exeno1" value = 1></td>
 				<tr>
 				<tr>
