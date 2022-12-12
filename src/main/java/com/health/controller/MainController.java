@@ -34,7 +34,7 @@ public class MainController extends HttpServlet {
 		switch (command) {
 		case "/index.index":
 			
-			response.sendRedirect(path+"index.jsp");
+			response.sendRedirect("/health_routine/index.jsp");
 			break;
 
 		default:
