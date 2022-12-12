@@ -71,17 +71,21 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-
-					<li><a href="${pageContext.request.contextPath }/index.main">HOME</a></li>
+					<c:if test="${sessionScope.id == null }">
+						<li><a href="${pageContext.request.contextPath }/user/user_login.user">HOME</a></li>
+					</c:if>
+					<c:if test="${sessionScope.id != null }">
+						<li><a href="${pageContext.request.contextPath }/user/user_mypage.user">HOME</a>
+					</c:if>
 					<li><a href="${pageContext.request.contextPath }/member/member.main">Member</a></li>
 					<li><a href="${pageContext.request.contextPath }/board/board_list.board">BOARD</a></li>
-					<c:if test="${sessionScope.user_id == null }">
-					<li><a href="${pageContext.request.contextPath }/user/user_login.user">LOGIN</a></li>
-					<li><a href="${pageContext.request.contextPath }/user/user_join.user" style="color: red">JOIN</a></li>
+					<c:if test="${sessionScope.id == null }">
+						<li><a href="${pageContext.request.contextPath }/user/user_login.user">LOGIN</a></li>
+						<li><a href="${pageContext.request.contextPath }/user/user_join.user" style="color: red">JOIN</a></li>
 					</c:if>
-					<c:if test="${sessionScope.user_id!=null }">
-					<li><a href="${pageContext.request.contextPath }/user/user_logout.user">LOGOUT</a></li>
-					<li><a href="${pageContext.request.contextPath }/user/user_mypage.user" style="color: red">MYPAGE</a></li>
+					<c:if test="${sessionScope.id!=null }">
+						<li><a href="${pageContext.request.contextPath }/user/user_logout.user">LOGOUT</a></li>
+						<li><a href="${pageContext.request.contextPath }/user/user_mypage.user" style="color: red">MYPAGE</a></li>
 					</c:if>
 				</ul>
 			</div>

@@ -56,10 +56,10 @@
 				<tr>
 					<td>루틴 선택</td>
 					<td>
-						<input type="radio" name="rno" required="required" value="1">3분할
-						<input type="radio" name="rno" required="required" value="2">4분할
-						<input type="radio" name="rno" required="required" value="3">5분할
-						<input type="radio" name="rno" required="required" value="4">무분할
+						<input type="radio" name="rno" required="required" value="3">3분할
+						<input type="radio" name="rno" required="required" value="4">4분할
+						<input type="radio" name="rno" required="required" value="5">5분할
+						<input type="radio" name="rno" required="required" value="0">무분할
 					</td>
 				</tr>
 				
