@@ -13,11 +13,11 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public void write(HttpServletRequest request, HttpServletResponse response) {
-		String writer = request.getParameter("writer");
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
+		String bid = request.getParameter("bid");
+		String btitle = request.getParameter("btitle");
+		String bcontent = request.getParameter("bcontent");
 		
-		dao.write(writer, title, content);
+		dao.write(bid, btitle, bcontent);
 		
 	}
 
@@ -31,18 +31,25 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public BoardVO getContent(HttpServletRequest request, HttpServletResponse response) {
 		String bno = request.getParameter("bno");
+		dao.hit(bno);//조회수 수정
 		BoardVO vo = dao.getContent(bno);
 		return vo;
 	}
 
 	@Override
-	public void update(HttpServletRequest request, HttpServletResponse response) {
+	public void modify(HttpServletRequest request, HttpServletResponse response) {
+		String bno = request.getParameter("bno");
+		String btitle = request.getParameter("btitle");
+		String bcontent = request.getParameter("bcontent");
 		
+		 dao.modify(bno, btitle, bcontent);
 	}
 
 	@Override
-	public void delete(HttpServletRequest request, HttpServletResponse response) {
-		
+	public int delete(HttpServletRequest request, HttpServletResponse response) {
+		String bno = request.getParameter("bno") ;
+		int result = dao.delete(bno);
+		return result;
 	}
 
 }
