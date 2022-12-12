@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.health.exercise.model.ExerciseVO;
 import com.health.exerciseinfo.service.ExerciseInfoServiceImpl;
@@ -32,6 +33,7 @@ public class ExerciseInfoController extends HttpServlet {
 		String uri =request.getRequestURI();
 		String path = request.getContextPath();
 		String command = uri.substring(path.length());
+		HttpSession session = request.getSession();
 		
 		ExerciseInfoServiceImpl service = new ExerciseInfoServiceImpl();
 		
@@ -39,15 +41,20 @@ public class ExerciseInfoController extends HttpServlet {
 		
 		if(command.equals("/exerciseinfo/ExInsert.ExerciseInfo")) {
 			
-			
 			ArrayList<ExerciseVO> list =  service.getRoutine(request, response);
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("Exerciseinfo_page.jsp").forward(request, response);
 			
 			
 		}
+		else if(command.equals("/exerciseinfo/ExDB.ExerciseInfo")) {
+			service.insert(request, response);
+		}
+		if(command.equals("/exerciseinfo/myExercise.ExerciseInfo")) {
+		}
 		
 	}
+	
 	
 	
 	

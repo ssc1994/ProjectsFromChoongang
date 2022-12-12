@@ -8,12 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.health.exercise.model.ExerciseVO;
+import com.health.user.model.UserVO;
 import com.health.util.UtilClose;
 
 public class ExerciseinfoDAO {
 	
 	private static ExerciseinfoDAO instance = new ExerciseinfoDAO();
-	
 
 	public ExerciseinfoDAO() {
 		
@@ -41,7 +41,6 @@ public class ExerciseinfoDAO {
 		ArrayList<ExerciseVO> list = new ArrayList<>();
 		
 		String sql = "select * from exercise where rno =? and rdayno= ?";
-		
 		try {
 			conn = DriverManager.getConnection(URL,UID,UPW);
 			
@@ -58,6 +57,9 @@ public class ExerciseinfoDAO {
 				vo.setEname(rs.getString("ename"));
 				vo.setSets(rs.getInt("sets"));
 				vo.setBase(rs.getInt("base"));
+				vo.setRno(rs.getInt("rno"));
+				vo.setRdayno(rs.getInt("rdayno"));
+				
 				
 				list.add(vo);
 			}
@@ -71,5 +73,39 @@ public class ExerciseinfoDAO {
 		return list;
 	}
 	
+	public void insert(String id, int rno , int exeno1, int exeno2, int exeno3,int exeno4,int exeno5,int exeno6,int rdayno) {
+		
+		String sql = "insert into exerciseinfo values(uno_seq.NEXTVAL,?,?,?,?,?,?,?,?,sysdate,?)";
+		
+		try {
+			conn = DriverManager.getConnection(URL,UID,UPW);
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1,id);
+			pstmt.setInt(2, exeno1);
+			pstmt.setInt(3, exeno2);
+			pstmt.setInt(4, exeno3);
+			pstmt.setInt(5, exeno4);
+			pstmt.setInt(6, exeno5);
+			pstmt.setInt(7, exeno6);
+			pstmt.setInt(8, rno);
+			pstmt.setInt(9, rdayno);
+			
+			pstmt.executeUpdate();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			UtilClose.close(conn, pstmt, rs);
+		}
+		
+	}
+		
+		
+		
+		
+		
 
 }
