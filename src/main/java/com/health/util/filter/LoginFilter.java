@@ -20,7 +20,9 @@ import javax.servlet.http.HttpSession;
 		"/board/board_modify.board", 
 		"/board/registForm.board", 
 		"/board/updateForm.board", 
-		"/board/board_delete.board"})
+		"/board/board_delete.board",
+		"/exerciseinfo/Exerciseinfo_page.ExerciseInfo",
+		"/myexercise/myExercise.myExercise"})
 public class LoginFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

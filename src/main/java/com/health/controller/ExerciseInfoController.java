@@ -1,6 +1,7 @@
 package com.health.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -39,7 +40,11 @@ public class ExerciseInfoController extends HttpServlet {
 		
 		System.out.println(command);
 		
-		if(command.equals("/exerciseinfo/ExInsert.ExerciseInfo")) {
+		if(command.equals("/exerciseinfo/Exerciseinfo_page.ExerciseInfo")) {
+			request.getRequestDispatcher("Exerciseinfo_page.jsp").forward(request, response);
+		}
+		
+		else if(command.equals("/exerciseinfo/ExInsert.ExerciseInfo")) {
 			
 			ArrayList<ExerciseVO> list =  service.getRoutine(request, response);
 			request.setAttribute("list", list);
@@ -49,14 +54,18 @@ public class ExerciseInfoController extends HttpServlet {
 		}
 		else if(command.equals("/exerciseinfo/ExDB.ExerciseInfo")) {
 			service.insert(request, response);
-		}
-		if(command.equals("/exerciseinfo/myExercise.ExerciseInfo")) {
+			
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('입력되었습니다.')");
+			out.println("location.href='../index.jsp';");
+			out.println("</script>");
 		}
 		
-	}
 	
 	
-	
+}
 	
 	
 		

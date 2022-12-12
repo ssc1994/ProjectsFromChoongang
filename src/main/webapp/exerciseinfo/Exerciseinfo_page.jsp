@@ -20,7 +20,7 @@
 	<div style="color: white">
 			<form action="ExDB.ExerciseInfo" method="post">
 			<c:forEach var="vo" begin="0" end="0" items="${list }">
-			<h2 align = center>${vo.rno}분할</h4>
+			<h4 align = center>${vo.rno}분할</h4>
 			<h3 align = center>${vo.rdayno}일차</h3>
 			</c:forEach>
 			<table class="table table-bordered" style="color: white">

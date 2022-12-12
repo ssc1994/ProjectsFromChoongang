@@ -30,7 +30,7 @@ public class ExerciseInfoServiceImpl implements ExerciseInfoService{
 			HttpSession session = request.getSession();
 			
 			String id = (String)session.getAttribute("id");
-			int rno = (int)session.getAttribute("rno");
+			int rno = (int)session.getAttribute("user_rno");
 			int exeno1 =0;
 			int exeno2 =0;
 			int exeno3 =0;

@@ -3,7 +3,7 @@
 <%@ include file="../include/header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-	<form align="center" action="myexercise.ExerciseInfo" method="post">
+	<form align="center" action="myexercise.myExercise" method="post">
  	<div class="container">
 		<h3>운동 내역게시판</h3>
 

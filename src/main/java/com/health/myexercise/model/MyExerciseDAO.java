@@ -1,14 +1,14 @@
-package com.health.exercisecalnedar.model;
+package com.health.myexercise.model;
 
 import java.util.ArrayList;
 
 import com.health.util.UtilClose;
 
-public class ExerciseCalendarDAO {
+public class MyExerciseDAO {
 	
-	private static ExerciseCalendarDAO instance = new ExerciseCalendarDAO(); 
+	private static MyExerciseDAO instance = new MyExerciseDAO(); 
 
-	public ExerciseCalendarDAO() {
+	public MyExerciseDAO() {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -18,16 +18,16 @@ public class ExerciseCalendarDAO {
 		
 	}
 
-	public static ExerciseCalendarDAO getInstance() {
+	public static MyExerciseDAO getInstance() {
 		return instance;
 	}
 	
-	public static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	public static final String URL = "jdbc:oracle:thin:@172.30.1.27:1521:xe";
 	public static final String UID = "health";
 	public static final String UPW = "health";
 	
-	public ArrayList<ExerciseCalendarVO> getExercise(String ename, int sets, int base, int rno){
-		ArrayList<ExerciseCalendarVO> list = null;
+	public ArrayList<MyExerciserVO> getExercise(String ename, int sets, int base, int rno){
+		ArrayList<MyExerciserVO> list = null;
 		
 		String sql="";
 		
