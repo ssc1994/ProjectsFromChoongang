@@ -26,9 +26,9 @@ public class BoardDAO {
 	}
 	
 	//사용할 변수들 미리 생성
-	public String URL = "jdbc:oracle:thin:@localhost:1521:xe";
-	public String UID = "test1";
-	public String UPW = "test1";
+	public String URL = "jdbc:oracle:thin:@172.30.1.27:1521:xe";
+	public String UID = "health";
+	public String UPW = "health";
 	
 	private Connection conn;
 	private PreparedStatement pstmt;
@@ -133,7 +133,7 @@ public class BoardDAO {
 			pstmt.setString(1, btitle);
 			pstmt.setString(2, bcontent);
 			pstmt.setString(3, bno);
-			 pstmt.executeUpdate();
+			pstmt.executeUpdate();
 		} catch (Exception e) {
 		
 		} finally {
