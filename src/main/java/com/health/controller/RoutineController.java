@@ -49,7 +49,6 @@ public class RoutineController extends HttpServlet {
 			break;
 			
 		case "/routine/routineForm.routine":
-			
 			int rno = routineservice.getRoutine(request, response);//서비스-dao 연결을 통해 db에서 가져온 routine 값(number)
 			session.setAttribute("rno",rno);//rno라는 세션에 routine값 세션에 저장
 			session.setAttribute("exerciselist", exerciseservice.getExercise(request, response));
