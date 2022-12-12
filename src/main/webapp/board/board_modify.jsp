@@ -22,25 +22,25 @@
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input type="text" name="bid" value="${vo.bid }" readonly></td>
+				<td><input type="text" name="bid" value="${vo.bid }" readonly style="color: black"></td>
 			</tr>
 			<tr>
 				<td>글 제목</td>
 				<td>
-					<input type="text" name="btitle" value="${vo.btitle }">
+					<input type="text" name="btitle" value="${vo.btitle }" style="color: black">
 				</td>
 			</tr>
 			<tr>
 				<td>글 내용</td>
 				<td>
-					<textarea rows="10" style="width: 90%;" name="bcontent"> ${vo.bcontent }
+					<textarea rows="10" style="width: 90%;" name="bcontent" style="color: black"> ${vo.bcontent }
 					</textarea>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="수정 하기">&nbsp;&nbsp;
-					<input type="button" value="목록" onclick="location.href='board_list.board'">        
+					<input type="submit" value="수정 하기" style="color: black">&nbsp;&nbsp;
+					<input type="button" value="목록" style="color: black" onclick="location.href='board_list.board'">        
 				</td>
 			</tr>
 			

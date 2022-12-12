@@ -58,7 +58,14 @@ public class UserController extends HttpServlet {
 				request.setAttribute("msg", "중복된 아이디 또는 이메일");
 				request.getRequestDispatcher("user_join.jsp").forward(request, response);
 			}else {
-				response.sendRedirect("user_login.user");
+				
+				response.setContentType("text/html; charset=utf-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('회원가입을 완료했습니다. 앞으로 열심히 운동 해 보자고요 !')");
+				out.println("location.href='user_login.user';");
+				out.println("</script>");
+				
 			}
 			
 			break;
@@ -80,7 +87,7 @@ public class UserController extends HttpServlet {
 				session = request.getSession();
 				session.setAttribute("id", vo.getId());
 				session.setAttribute("name", vo.getName());
-				session.setAttribute("rno", vo.getRno());
+				session.setAttribute("user_rno", vo.getRno()); //운동 루틴 설정한 값을 넘겨주기 위해 가져 온 것.
 				
 				response.sendRedirect("user_mypage.user");
 			}

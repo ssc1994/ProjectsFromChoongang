@@ -37,7 +37,7 @@
 		<tr>
 			<td>${vo.bno }</td>
 			<td>${vo.bid }</td>
-			<td><a href="board_content.board?bno=${vo.bno }">${vo.btitle }</a></td>
+			<td><a href="board_content.board?bno=${vo.bno }" style="color: pink">${vo.btitle }</a></td>
 			<td><fmt:formatDate value ="${vo.regdate }" pattern="yyyy-MM-dd HH시mm분"/></td>
 			<td>${vo.hit }</td>
 		</tr>

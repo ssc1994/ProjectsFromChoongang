@@ -5,7 +5,7 @@
 
 <%@ include file="../include/header.jsp" %>
 
-<div align="center" class="div_center" style="color: white">
+<div align="center" class="div_center" style="color:white">
 	<h3> 게시글 상세 페이지</h3>
 	<hr/>
 	 <table width="550" border =1  class ="tabstyle">
@@ -47,9 +47,9 @@
 	 	
 	 	<tr>
 			<td colspan="4" align="center">
-				<input type="button" value="목록" onclick="location.href='board_list.board'">&nbsp;&nbsp;
-				<input type="button" value="수정" onclick="location.href='board_modify.board?bno=${vo.bno}&bid=${vo.bid}'">&nbsp;&nbsp;
-				<input type="button" value="삭제" onclick="location.href='board_delete.board?bno=${vo.bno}&bid=${vo.bid}'">&nbsp;&nbsp;
+				<input type="button" value="목록" onclick="location.href='board_list.board'" style="color: black">&nbsp;&nbsp;
+				<input type="button" value="수정" onclick="location.href='board_modify.board?bno=${vo.bno}&bid=${vo.bid}'" style="color: black">&nbsp;&nbsp;
+				<input type="button" value="삭제" onclick="location.href='board_delete.board?bno=${vo.bno}&bid=${vo.bid}'" style="color: black">&nbsp;&nbsp;
 			</td>
 		</tr>
 	 	
