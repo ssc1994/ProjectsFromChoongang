@@ -11,8 +11,8 @@
 			<table border=1 width=700>
 				<tr>
 					<td>작성자</td>
-					<td><input type="text" name="bid" value="작성자세션값" size=10
-						required /></td>
+					<td><input type="text" name="bid" value="${sessionScope.id }" size=10
+						required readonly /></td>
 				</tr>
 
 				<tr>

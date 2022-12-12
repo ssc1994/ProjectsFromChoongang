@@ -164,4 +164,40 @@ public class BoardDAO {
 	
 	
 	
+	public ArrayList<BoardVO> search(String search) {
+
+		ArrayList<BoardVO> list = new ArrayList<>();
+
+		String sql = "select * from STORE where btitle like ?";
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			conn = DriverManager.getConnection(URL,UID,UPW);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+search+"%");
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+
+				int bno2 = rs.getInt("bno");
+				String btitle = rs.getString("btitle");
+				String bcontent = rs.getString("bcontent");
+				Timestamp regdate = rs.getTimestamp("regdate");
+				int hit = rs.getInt("hit");
+				String bid = rs.getString("bid");
+				BoardVO vo = new BoardVO(bno2, btitle, bcontent, regdate, hit, bid);
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			UtilClose.close(conn, pstmt, rs);
+		}
+		return list;
+	}
+	
+	
+	
+	
 }

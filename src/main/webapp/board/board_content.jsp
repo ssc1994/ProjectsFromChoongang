@@ -14,7 +14,7 @@
 	 			 글번호
 	 		</td>
 	 		<td width ="20%">
-	 			 ${num }
+	 			 ${vo.bno }
 	 		</td>
 	 		<td width ="20%">
 	 			 조회수
@@ -48,8 +48,8 @@
 	 	<tr>
 			<td colspan="4" align="center">
 				<input type="button" value="목록" onclick="location.href='board_list.board'">&nbsp;&nbsp;
-				<input type="button" value="수정" onclick="location.href='board_modify.board?bno=${vo.bno}&writer=${vo.bid}'">&nbsp;&nbsp;
-				<input type="button" value="삭제" onclick="location.href='board_delete.board?bno=${vo.bno}&writer=${vo.bid}'">&nbsp;&nbsp;
+				<input type="button" value="수정" onclick="location.href='board_modify.board?bno=${vo.bno}&bid=${vo.bid}'">&nbsp;&nbsp;
+				<input type="button" value="삭제" onclick="location.href='board_delete.board?bno=${vo.bno}&bid=${vo.bid}'">&nbsp;&nbsp;
 			</td>
 		</tr>
 	 	

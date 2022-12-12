@@ -15,45 +15,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter({"/board/board_modify.board", 
+
+@WebFilter({"/board/board_write.board", 
+		"/board/board_modify.board", 
+		"/board/registForm.board", 
 		"/board/updateForm.board", 
 		"/board/board_delete.board"})
-public class AuthFilter implements Filter {
+public class LoginFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		request.setCharacterEncoding("utf-8");
 
-		//권한검사
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 
-		//각 요청에 넘어오는 writer 파라미터
-		String writer = request.getParameter("bid");
-
-		//세션에 저장된 user_id
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
-
-				System.out.println("작성자" + writer);
-				System.out.println("세션ID" + id);
-
-		//세션이 없거나 or 작성자와 세션이 다른경우
-		if(id == null || !writer.equals(id)) {
-
+		System.out.println(id);
+		if(id == null) {		//권한이 없다면
 			String path = req.getContextPath();
-
 			res.setContentType("text/html; charset=utf-8");
 			PrintWriter out = res.getWriter();
 			out.println("<script>");
 			out.println("alert('권한이 필요한 기능입니다');");
-			out.println("location.href='" + path + "/board/board_list.board';");
+			out.println("location.href='" + path + "/user/user_login.user';");
 			out.println("</script>");
 
-			return;
-
+			return;	
 		}
 
 
+		//필터가 여러개라면 다음필터로 연결한다
 		chain.doFilter(request, response);
 	}
+
 }

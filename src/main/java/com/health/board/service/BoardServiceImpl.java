@@ -18,7 +18,6 @@ public class BoardServiceImpl implements BoardService{
 		String bcontent = request.getParameter("bcontent");
 		
 		dao.write(bid, btitle, bcontent);
-		
 	}
 
 	@Override
@@ -51,5 +50,15 @@ public class BoardServiceImpl implements BoardService{
 		int result = dao.delete(bno);
 		return result;
 	}
+
+	@Override
+	public ArrayList<BoardVO> search(HttpServletRequest request, HttpServletResponse response) {
+		String search = request.getParameter("search");
+		ArrayList<BoardVO> list = dao.search(search);
+
+		return list;
+	}
+	
+	
 
 }
