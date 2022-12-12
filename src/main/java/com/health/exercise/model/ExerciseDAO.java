@@ -26,9 +26,9 @@ public class ExerciseDAO {
 		return instance;
 	}
 	
-	public static final String URL = "jdbc:oracle:thin:@172.30.1.39:1521:xe";
-	public static final String UID = "health";
-	public static final String UPW = "health";
+	public static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	public static final String UID = "healthtest";
+	public static final String UPW = "healthtest";
 	
 	private Connection conn;
 	private PreparedStatement pstmt;

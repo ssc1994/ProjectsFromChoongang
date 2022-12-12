@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.health.exercise.service.ExerciseService;
+import com.health.exercise.service.ExerciseServiceimpl;
 import com.health.routine.sevice.RoutineService;
 import com.health.routine.sevice.RoutineServiceImpl;
 
@@ -34,16 +36,29 @@ public class RoutineController extends HttpServlet {
 		
 		System.out.println("요청경로"+command);
 		
-		RoutineService service = new RoutineServiceImpl();
+		RoutineService routineservice = new RoutineServiceImpl();
+		ExerciseService exerciseservice=new ExerciseServiceimpl();
 		HttpSession session = request.getSession();
 		
 		switch (command) {
 		case "/routine/routine_info.routine":
-			session.setAttribute("chooseroutine",service.getRoutine(request, response));
+		
+			
 			
 			request.getRequestDispatcher("routine_info.jsp").forward(request, response);
 			break;
 			
+		case "/routine/routineForm.routine":
+			
+			int rno = routineservice.getRoutine(request, response);//서비스-dao 연결을 통해 db에서 가져온 routine 값(number)
+			session.setAttribute("rno",rno);//rno라는 세션에 routine값 세션에 저장
+			session.setAttribute("exerciselist", exerciseservice.getExercise(request, response));
+			
+			
+			
+			response.sendRedirect("routine_info.routine");
+			break;
+		
 		default:
 			break;
 		}
