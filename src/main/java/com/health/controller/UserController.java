@@ -80,6 +80,7 @@ public class UserController extends HttpServlet {
 				session = request.getSession();
 				session.setAttribute("id", vo.getId());
 				session.setAttribute("name", vo.getName());
+				session.setAttribute("rno", vo.getRno());
 				
 				response.sendRedirect("user_mypage.user");
 			}
