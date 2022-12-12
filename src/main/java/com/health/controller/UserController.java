@@ -138,12 +138,23 @@ public class UserController extends HttpServlet {
 			
 			break;
 			
+		case "/user/user_confirm.user": 
+			
+			request.getRequestDispatcher("user_confirm.jsp").forward(request, response);
+			
+			break;
+			
 		case "/user/user_delete.user": 
 			
 			int result2 = service.delete(request, response);
 			
 			if(result2 == 1) {
-				response.sendRedirect("user_login.user");
+				response.setContentType("text/html; charset=utf-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('정보가 삭제되었습니다.')");
+				out.println("location.href='user_login.user';");
+				out.println("</script>");
 			}else {
 				response.sendRedirect("user_mypage.user");
 			}
