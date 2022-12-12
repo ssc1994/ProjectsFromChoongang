@@ -9,7 +9,7 @@
 <body>
 
 <section>
-	<div align="center" style="color: white">
+	<div align="center" style="color: black">
 	<form action="user_delete.user">
 			<b>${sessionScope.name }</b>님 확인을 누르시면 회원정보가 삭제됩니다.<br>
 			정말로 삭제하시려면 확인을 누르세요.<br>

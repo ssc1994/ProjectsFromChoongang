@@ -5,6 +5,11 @@
 <section>
 	<div align="center" style="color: white">
 		 
+		 <h2 style="color: red">야 너도 몸짱 될 수 있어</h2>
+		 <br>
+		 <h2 style="color: fuchsia">한계에 도전해 봐</h2>
+		 <br>
+		 
 		<b>${sessionScope.name }</b>님 환영합니다.
 		
 		<div>
