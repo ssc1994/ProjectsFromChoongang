@@ -769,6 +769,7 @@
 			<br>
 			ㅇㅋ 봐줌 누르셈 이 정도 근성이면 보내줘야지<br>
 			<input type="submit" value="확인">
+			<input type="button" value="취소" onclick="location.href='user_mypage.user'">
 	</form>
 	
 		
