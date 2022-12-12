@@ -9,7 +9,7 @@
 <body>
 
 <section>
-	<div align="center">
+	<div align="center" style="color: white">
 	<form action="user_delete.user">
 			<b>${sessionScope.name }</b>님 확인을 누르시면 회원정보가 삭제됩니다.<br>
 			정말로 삭제하시려면 확인을 누르세요.<br>
@@ -768,8 +768,8 @@
 			<br>
 			<br>
 			ㅇㅋ 봐줌 누르셈 이 정도 근성이면 보내줘야지<br>
-			<input type="submit" value="확인">
-			<input type="button" value="취소" onclick="location.href='user_mypage.user'">
+			<input type="submit" value="확인" style="color: black">
+			<input type="button" value="취소" onclick="location.href='user_mypage.user'" style="color: black">
 	</form>
 	
 		
