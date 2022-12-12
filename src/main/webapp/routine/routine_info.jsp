@@ -21,10 +21,13 @@
 	</div>
 </section>
 <section>
+	<c:if test="${sessionScope.id ==null }">
 	<div align="center" >
 	<input type="button" value="회원가입" class="btn btn-success" onclick="location.href='../user/user_join.user'">
 	</div>
+	</c:if>
 </section>
+<hr style="clor:white">
 <%--무분할 페이지가 홈페이지 --%>
 <section>
 	<c:choose>

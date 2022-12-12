@@ -99,11 +99,12 @@ public class BoardDAO {
 		
 		ArrayList<BoardVO> list =  new ArrayList<>();
 		
-		String sql = "SELECT * FROM board where bno<50 and bno>43 ORDER BY bno DESC";
+		//String sql = "SELECT * FROM board where bno<50 and bno>43 ORDER BY bno DESC";
+		String sq2 = "select * from (select rownum rn, b.* from(select * from board order by bno desc) b )where rn <=5";
 			
 		try {
 			conn=DriverManager.getConnection(URL, UID, UPW);
-			pstmt=conn.prepareStatement(sql);
+			pstmt=conn.prepareStatement(sq2);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
