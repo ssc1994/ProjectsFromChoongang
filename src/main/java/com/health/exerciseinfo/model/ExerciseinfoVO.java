@@ -6,6 +6,7 @@ public class ExerciseinfoVO {
 	
 	public ExerciseinfoVO() {}
 	
+	private String id;
 	private int uno;
 	private int echeck;
 	private int exeno1;
@@ -19,8 +20,21 @@ public class ExerciseinfoVO {
 	private Timestamp exdate;
 	
 	
-	public ExerciseinfoVO(int uno, int echeck, int exeno1, int exeno2, int exeno3, int exeno4, int exeno5,
+	public ExerciseinfoVO(String id,int uno, int echeck, int exeno1, int exeno2, int exeno3, int exeno4, int exeno5,
 			int exeno6, int rno, int rdayno, Timestamp exdate) {}
+
+	
+	
+	public String getId() {
+		return id;
+	}
+
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 
 
 	public int getUno() {
