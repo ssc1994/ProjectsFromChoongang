@@ -12,7 +12,8 @@ import com.health.util.UtilClose;
 
 public class ExerciseinfoDAO {
 	
-	private static ExerciseinfoDAO instance = new ExerciseinfoDAO(); 
+	private static ExerciseinfoDAO instance = new ExerciseinfoDAO();
+	
 
 	public ExerciseinfoDAO() {
 		
@@ -36,15 +37,18 @@ public class ExerciseinfoDAO {
 	public static final String UID = "health";
 	public static final String UPW = "health";
 	
-	public ArrayList<ExerciseVO> getRoutine(){
+	public ArrayList<ExerciseVO> getRoutine(int rno ,int rdayno){
 		ArrayList<ExerciseVO> list = new ArrayList<>();
 		
-		String sql = "select * from exercise where rno =3 and rday= 1";
+		String sql = "select * from exercise where rno =? and rdayno= ?";
 		
 		try {
 			conn = DriverManager.getConnection(URL,UID,UPW);
 			
 			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, rno);
+			pstmt.setInt(2, rdayno);
 			
 			rs = pstmt.executeQuery();
 			
