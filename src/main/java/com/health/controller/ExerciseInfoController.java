@@ -39,9 +39,10 @@ public class ExerciseInfoController extends HttpServlet {
 		
 		if(command.equals("/exerciseinfo/ExInsert.ExerciseInfo")) {
 			
+			
 			ArrayList<ExerciseVO> list =  service.getRoutine(request, response);
 			request.setAttribute("list", list);
-			request.getRequestDispatcher("board_list.jsp").forward(request, response);
+			request.getRequestDispatcher("Exerciseinfo_page.jsp").forward(request, response);
 			
 			
 		}

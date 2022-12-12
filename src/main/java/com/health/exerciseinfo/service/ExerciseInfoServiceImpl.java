@@ -11,9 +11,12 @@ import com.health.exerciseinfo.model.ExerciseinfoDAO;
 public class ExerciseInfoServiceImpl implements ExerciseInfoService{
 	
 		public ArrayList<ExerciseVO> getRoutine(HttpServletRequest request, HttpServletResponse response) {
-		
+			
+			int rno = (int)request.getAttribute("rno");
+			int rdayno = Integer.parseInt(request.getParameter("day"));   
+			
 			ExerciseinfoDAO dao = ExerciseinfoDAO.getInstance();
-			ArrayList<ExerciseVO> list = dao.getRoutine();
+			ArrayList<ExerciseVO> list = dao.getRoutine(rno,rdayno);
 			
 			return list;
 	}

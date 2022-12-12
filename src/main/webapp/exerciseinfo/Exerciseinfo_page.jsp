@@ -16,29 +16,31 @@
 			 <input type="submit" value="확인">
 		</form>
 	</div>
-
+			
 	<div>
 			<h3>무분할</h3>
 			<table class="table table-bordered">
 
 				<thead>
 					<tr>
-						<th>DAY</th>
 						<th>운동명</th>
 						<th>세트</th>
-						<th>운동설명</th>
 						<th>기본무게</th>
+						<th>체크</th>
 					</tr>
 				</thead>
 
 
 				<tbody>
+				<c:forEach var = "vo" items="${list }" >
 					<tr>
 										<tr>
 											<td>${vo.ename }</td>
 											<td>${vo.sets }</td>
 											<td>${vo.base }</td>
+											<td><input type="checkbox" name="exeno" value="1" }></td>
 										</tr>
+				</c:forEach>
 				</tbody>
 			</table>
 	</div>
