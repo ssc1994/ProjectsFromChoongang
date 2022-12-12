@@ -1,6 +1,7 @@
 package com.health.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -36,6 +37,7 @@ public class BoardController extends HttpServlet {
 		String command = uri.substring(path.length());
 		BoardService service = new BoardServiceImpl(); 
 		HttpSession session = request.getSession();
+		int result = 0;
 		
 		
 		switch (command) {
@@ -48,6 +50,7 @@ public class BoardController extends HttpServlet {
 			
 			BoardVO vo = service.getContent(request, response);
 			request.setAttribute("vo", vo);
+			request.setAttribute("num",request.getParameter("num"));
 			
 			request.getRequestDispatcher("board_content.jsp").forward(request, response);
 			break;
@@ -63,11 +66,25 @@ public class BoardController extends HttpServlet {
 			
 	case "/board/board_modify.board":	//글 수정 페이지
 			
+			vo=service.getContent(request, response);
+			request.setAttribute("vo", vo);
 			
 			
 			request.getRequestDispatcher("board_modify.jsp").forward(request, response);
 			break;
 			
+	case "/board/board_modifyForm.board":	//글 수정 페이지
+		
+		service.modify(request, response);
+		
+		response.sendRedirect("board_content.board?bno="+request.getParameter("bno"));
+		
+		
+		
+		
+		
+		break;
+		
 	case "/board/writeForm.board":	//글 작성시 값을 넘겨주는 페이지(작성 완료시 목록으로 보냄)
 		
 		
@@ -75,10 +92,26 @@ public class BoardController extends HttpServlet {
 		
 		response.sendRedirect("board_list.board");
 		break;
-			
-			
-			
-			
+	case "/board/board_delete.board":	//글 작성시 값을 넘겨주는 페이지(작성 완료시 목록으로 보냄)
+		
+		result = service.delete(request, response);
+		String msg = "";
+        if(result == 1) {//삭제 성공
+           msg="삭제성공";
+        }else {//삭제 실패
+           msg="삭제실패";
+        }
+		
+		response.setContentType("text/html; charset=utf-8");
+        PrintWriter out = response.getWriter();
+        out.println("<script>");
+        out.println("alert('"+msg+"');");
+        out.println("location.href='board_list.board';");
+        out.println("</script>");
+		
+		
+		
+		break;
 
 		default:
 			break;

@@ -19,10 +19,10 @@ public interface BoardService {
 	BoardVO getContent(HttpServletRequest request, HttpServletResponse response);
 	
 	//수정
-	void update(HttpServletRequest request, HttpServletResponse response);
+	void modify(HttpServletRequest request, HttpServletResponse response);
 	
 	//삭제
-	void delete(HttpServletRequest request, HttpServletResponse response);
+	int delete(HttpServletRequest request, HttpServletResponse response);
 	
 	
 }

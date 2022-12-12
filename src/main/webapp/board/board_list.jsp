@@ -22,14 +22,24 @@
 		<tr>
 			<td>${num.count }</td>
 			<td>${vo.bid }</td>
-			<td>${vo.btitle }</td>
+			<td><a href="board_content.board?bno=${vo.bno }&num=${num.count}">${vo.btitle }</a></td>
 			<td><fmt:formatDate value ="${vo.regdate }" pattern="yyyy-MM-dd HH시mm분"/></td>
 			<td>${vo.hit }</td>
 		</tr>
 		</c:forEach>
-		
+	</tbody>
+	
+	<tbody>
 		<tr>
-		
+			<td colspan="6" align="right">
+				<form action="" class="form-inline" >
+					<div class="form-group">
+						<input type="text" name="search" placeholder="제목검색" class="form-control" >
+						<input type="submit" value="검색" class="btn btn-default">
+						<input type="button" value="글 작성" class="btn btn-success" onclick="location.href='board_write.board'">
+					</div>
+				</form> 
+			</td>	
 		</tr>
 	</tbody>
 	

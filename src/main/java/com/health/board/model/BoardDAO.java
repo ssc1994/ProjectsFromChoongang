@@ -26,9 +26,9 @@ public class BoardDAO {
 	}
 	
 	//사용할 변수들 미리 생성
-	public String URL = "jdbc:oracle:thin:@172.30.1.39:1521:xe";
-	public String UID = "health";
-	public String UPW = "health";
+	public String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	public String UID = "test1";
+	public String UPW = "test1";
 	
 	private Connection conn;
 	private PreparedStatement pstmt;
@@ -51,7 +51,6 @@ public class BoardDAO {
 		} finally {
 			UtilClose.close(conn, pstmt, rs);
 		}
-		
 	}
 	
 	public BoardVO getContent(String bno) {
@@ -81,6 +80,21 @@ public class BoardDAO {
 		return vo;
 	}
 	
+	public void hit(String bno) {
+		String sql = "UPDATE board set hit=hit+1 where bno =?";
+		try {
+			conn = DriverManager.getConnection(URL, UID, UPW);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bno);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			UtilClose.close(conn, pstmt, rs);
+		}
+	}
+	
+	
 	public ArrayList<BoardVO> getList(){
 		
 		ArrayList<BoardVO> list =  new ArrayList<>();
@@ -108,6 +122,44 @@ public class BoardDAO {
 			UtilClose.close(conn, pstmt, rs);
 		}
 		return list;
+	}
+	
+	public void modify(String bno, String btitle, String bcontent) {
+		int result = 0;
+		String sql = "UPDATE BOARD SET btitle =? , bcontent =? WHERE bno =?";
+		try {
+			conn= DriverManager.getConnection(URL, UID, UPW);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, btitle);
+			pstmt.setString(2, bcontent);
+			pstmt.setString(3, bno);
+			 pstmt.executeUpdate();
+		} catch (Exception e) {
+		
+		} finally {
+			UtilClose.close(conn, pstmt, rs);
+		}
+		
+	}
+	
+	
+	public int delete(String bno) {
+		int result=0;
+		 String sql = "delete from board where bno = ?";
+	      try {
+	         conn = DriverManager.getConnection(URL,UID,UPW);         
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, bno);
+	         
+	         result = pstmt.executeUpdate();
+	      
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }
+	      finally {
+	         UtilClose.close(conn, pstmt, rs);
+	      }
+		return result;
 	}
 	
 	
