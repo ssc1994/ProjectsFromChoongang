@@ -10,7 +10,7 @@
 			<input type="radio" name="routine" value="3" ${sessionScope.rno == 3?'checked':''}>3분할
 			 <input type="radio" name="routine" value="4" ${sessionScope.rno == 4?'checked':''}>4분할 
 			 <input type="radio" name="routine" value="5" ${sessionScope.rno == 5?'checked':''}>5분할 
-			 <input type="radio" name="routine" value="0" checked>무분할 
+			 <input type="radio" name="routine" value="0" ${sessionScope.rno == 0?'checked':''} ${sessionScope.rno == null? 'checked':'' }>무분할 
 			 <input type="submit" value="확인">
 		</form>
 	</div>
@@ -70,7 +70,7 @@
 					<tr>
 						<c:forEach var="vo" items="${sessionScope.exerciselist }">
 							<c:forEach var="i" begin="1" end="${vo.rdayno }">
-									<c:if test="${vo.rno eq 3 and vo.rdayno eq i}">
+									<c:if test="${vo.rno eq 3 and vo.rdayno eq i }">
 										<tr>
 											<td>day${vo.rdayno}</td>
 											<td>${vo.ename }</td>
