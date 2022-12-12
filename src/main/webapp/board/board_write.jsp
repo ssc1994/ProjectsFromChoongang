@@ -8,11 +8,11 @@
 	<div align="center" class="div_center">
 		<h3>게시글 작성</h3>
 		<form action="writeForm.board" method=post">
-			<table border=1 width=700>
+			<table border=1 width=700 class ="tabstyle">
 				<tr>
 					<td>작성자</td>
-					<td><input type="text" name="bid" value="작성자세션값" size=10
-						required /></td>
+					<td><input type="text" name="bid" value="${sessionScope.id }" size=10
+						required readonly /></td>
 				</tr>
 
 				<tr>

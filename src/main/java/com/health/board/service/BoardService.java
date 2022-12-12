@@ -24,5 +24,6 @@ public interface BoardService {
 	//삭제
 	int delete(HttpServletRequest request, HttpServletResponse response);
 	
+	public ArrayList<BoardVO> search(HttpServletRequest request, HttpServletResponse response);
 	
 }

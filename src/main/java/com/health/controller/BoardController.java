@@ -80,7 +80,6 @@ public class BoardController extends HttpServlet {
 		response.sendRedirect("board_content.board?bno="+request.getParameter("bno"));
 		
 		
-		
 		break;
 		
 	case "/board/writeForm.board":	//글 작성시 값을 넘겨주는 페이지(작성 완료시 목록으로 보냄)
@@ -107,8 +106,19 @@ public class BoardController extends HttpServlet {
         out.println("location.href='board_list.board';");
         out.println("</script>");
 		
+		break;
 		
+	case "/board/board_searchForm.board":
+		ArrayList<BoardVO> searchList = service.search(request, response);
+		request.setAttribute("list", searchList);
 		
+		request.getRequestDispatcher("board_search.board").forward(request, response);
+		
+		break;
+		
+	case "/board/board_search.board":
+		
+		request.getRequestDispatcher("board_search.jsp").forward(request, response);
 		break;
 
 		default:

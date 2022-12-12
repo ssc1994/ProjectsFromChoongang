@@ -5,7 +5,7 @@
 
 <%@ include file="../include/header.jsp" %>
 
-<div align="center" style="color: white ; ">
+<div align="center" style="color: white">
 	<h3> 게시글 목록</h3>
 	
 	<table class="table table-bordered" style="width: 80%" >

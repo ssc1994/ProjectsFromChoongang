@@ -5,18 +5,16 @@
 
 <%@ include file="../include/header.jsp" %>
 
-<h3> 게시글 수정 페이지</h3>
 
-<div align="center" class="div_center">
+<div align="center" class="div_center" style="color: white">
 	<h3>게시판 글 수정 페이지</h3>
 	<hr>
 	
-	<form action="modifyForm.board" method="post">
+	<form action="board_modifyForm.board" method="post">
 		
-		<table border="1" width="500">
+		<table border=1 width="500" class ="tabstyle">
 			
 			<tr>
-			<!-- 화면에 보일 필요는 없는데, 데이터를 보내야하는 경우 hidden태그를 사용함 -->
 				<td>글 번호</td>
 				<td>${vo.bno }	
 					<input type="hidden" name="bno" value="${vo.bno }">

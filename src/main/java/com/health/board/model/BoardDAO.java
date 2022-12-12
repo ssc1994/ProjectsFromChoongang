@@ -54,7 +54,7 @@ public class BoardDAO {
 	}
 	
 	public BoardVO getContent(String bno) {
-		String sql = "SELECT * FROM board WHERE bno=?";
+		String sql = "SELECT * FROM board WHERE bno=? ";
 		BoardVO vo = null;
 		try {
 			conn=DriverManager.getConnection(URL, UID, UPW);
@@ -99,7 +99,7 @@ public class BoardDAO {
 		
 		ArrayList<BoardVO> list =  new ArrayList<>();
 		
-		String sql = "SELECT * FROM board ORDER BY bno DESC";
+		String sql = "SELECT * FROM board where bno<50 and bno>43 ORDER BY bno DESC";
 			
 		try {
 			conn=DriverManager.getConnection(URL, UID, UPW);
@@ -161,6 +161,42 @@ public class BoardDAO {
 	      }
 		return result;
 	}
+	
+	
+	
+	public ArrayList<BoardVO> search(String search) {
+
+		ArrayList<BoardVO> list = new ArrayList<>();
+
+		String sql = "select * from board where btitle like ?";
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			conn = DriverManager.getConnection(URL,UID,UPW);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+search+"%");
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+
+				int bno2 = rs.getInt("bno");
+				String btitle = rs.getString("btitle");
+				String bcontent = rs.getString("bcontent");
+				Timestamp regdate = rs.getTimestamp("regdate");
+				int hit = rs.getInt("hit");
+				String bid = rs.getString("bid");
+				BoardVO vo = new BoardVO(bno2, btitle, bcontent, regdate, hit, bid);
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			UtilClose.close(conn, pstmt, rs);
+		}
+		return list;
+	}
+	
 	
 	
 	
