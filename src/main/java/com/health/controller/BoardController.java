@@ -81,8 +81,6 @@ public class BoardController extends HttpServlet {
 		
 		
 		
-		
-		
 		break;
 		
 	case "/board/writeForm.board":	//글 작성시 값을 넘겨주는 페이지(작성 완료시 목록으로 보냄)
