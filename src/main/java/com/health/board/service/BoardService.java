@@ -26,4 +26,5 @@ public interface BoardService {
 	
 	public ArrayList<BoardVO> search(HttpServletRequest request, HttpServletResponse response);
 	
+//	public void execute(HttpServletRequest request, HttpServletResponse response);
 }
