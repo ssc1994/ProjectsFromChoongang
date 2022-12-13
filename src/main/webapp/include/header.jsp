@@ -66,7 +66,6 @@
                             <li class="scroll-to-section"><a href="${pageContext.request.contextPath }/routine/routine_info.routine">Exercise</a></li>
                             <li class="scroll-to-section"><a href="${pageContext.request.contextPath }/board/board_list.board">BOARD</a></li>
                             <li class="scroll-to-section"><a href="${pageContext.request.contextPath }/exerciseinfo/Exerciseinfo_page.ExerciseInfo">Schedules</a></li>
-                            <li class="scroll-to-section"><a href="${pageContext.request.contextPath }/myexercise/myExercise.myExercise">MyRecord</a></li>
                             <li class="scroll-to-section"><a href="${pageContext.request.contextPath }/user/user_login.user">Login</a></li> 
                             <li class="main-button"><a href="${pageContext.request.contextPath }/user/user_join.user" >Sign Up</a></li>
 						</c:if>
@@ -76,7 +75,6 @@
                             <li class="scroll-to-section"><a href="${pageContext.request.contextPath }/routine/routine_info.routine">Exercise</a></li>
                             <li class="scroll-to-section"><a href="${pageContext.request.contextPath }/board/board_list.board">BOARD</a></li>
                             <li class="scroll-to-section"><a href="${pageContext.request.contextPath }/exerciseinfo/Exerciseinfo_page.ExerciseInfo">Schedules</a></li>
-                            <li class="scroll-to-section"><a href="${pageContext.request.contextPath }/myexercise/myExercise.myExercise">MyRecord</a></li>
                             <li class="scroll-to-section"><a href="${pageContext.request.contextPath }/user/user_logout.user">Logout</a></li> 
                             <li class="main-button"><a href="${pageContext.request.contextPath }/user/user_mypage.user">my page</a></li>
 						</c:if>
