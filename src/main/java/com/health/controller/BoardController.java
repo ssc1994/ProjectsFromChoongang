@@ -121,9 +121,19 @@ public class BoardController extends HttpServlet {
 		request.getRequestDispatcher("board_search.jsp").forward(request, response);
 		break;
 
-		default:
-			break;
-		}
+	
+		
+//	case "/board/board_list1.board":		//글 목록 페이지
+//		service.execute(request, response);
+//		
+//
+//		request.getRequestDispatcher("board_list.jsp").forward(request, response);
+//		break;
+		
+		
+	default:
+		break;
+	}
 		
 		
 		

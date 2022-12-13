@@ -43,11 +43,24 @@
 		</tr>
 		</c:forEach>
 	</tbody>
-	
-	
-	
-	
 	</table>	
+	<table align="center">
+				<tr>
+					<td colspan="5">
+	               			<ul class="pagination" align ="center">
+                        		<li><input type="button" value="이전" class="btn btn-success" onclick="location.href='#'"></li>
+                        		<li  class="active"><input type="button" value="1" class="btn btn-success" onclick="location.href='board_list.board?pageNum=1'"></li>
+                        		<li><input type="button" value="2" class="btn btn-success" onclick="location.href='board_list.board?pageNum=2'"></li>
+                        		<li><input type="button" value="3" class="btn btn-success" onclick="location.href='board_list.board?pageNum=3'"></li>
+                        		<li><input type="button" value="4" class="btn btn-success" onclick="location.href='board_list.board?pageNum=4'"></li>
+                        		<li><input type="button" value="5" class="btn btn-success" onclick="location.href='board_list.board?pageNum=5'"></li>
+                        		<li><input type="button" value="다음" class="btn btn-success" onclick="location.href='board_list.board?pageNum='"></li>
+                    			</ul>
+					
+					</td>
+				</tr>
+			</table>
+	
 </div>
 
 <%@ include file="../include/footer.jsp" %>

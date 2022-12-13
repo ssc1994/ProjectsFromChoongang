@@ -124,7 +124,7 @@ public class BoardDAO {
 		}
 		return list;
 	}
-	
+	 
 	public void modify(String bno, String btitle, String bcontent) {
 		int result = 0;
 		String sql = "UPDATE BOARD SET btitle =? , bcontent =? WHERE bno =?";
@@ -142,7 +142,6 @@ public class BoardDAO {
 		}
 		
 	}
-	
 	
 	public int delete(String bno) {
 		int result=0;
@@ -162,8 +161,6 @@ public class BoardDAO {
 	      }
 		return result;
 	}
-	
-	
 	
 	public ArrayList<BoardVO> search(String search) {
 
@@ -198,7 +195,56 @@ public class BoardDAO {
 		return list;
 	}
 	
+	public int getTotal() {
+		int result = 0;
+		String sql = "select count(*) as total from board";
+		
+		try {
+			conn=DriverManager.getConnection(URL, UID, UPW);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt("total");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			UtilClose.close(conn, pstmt, rs);
+		}
+		return result;
+	}
 	
-	
-	
+//	public ArrayList<BoardVO> getList1(int pageNum, int amount){
+//		ArrayList<BoardVO> list = new ArrayList<>();
+//		String sql = "select * "
+//				+ 	 "from (select rownum rn,"
+//				+ 				   " a.* "
+//				+ 			"from (select *"
+//				+ 				 " from board order by bno desc) a ) "
+//				+ 	 "where rn > ? and rn <= ?";
+//		try {
+//			conn=DriverManager.getConnection(URL, UID, UPW);			
+//			pstmt = conn.prepareStatement(sql); // sql준비
+//			pstmt.setInt(1, (pageNum - 1) * amount);
+//			pstmt.setInt(2, pageNum * amount);
+//			rs = pstmt.executeQuery(); // sql문 실행
+//			
+//			while(rs.next()) {
+//				// 한바퀴 회전당 VO를 하나씩 생성
+//				int bno2 = rs.getInt("bno");
+//				String btitle = rs.getString("btitle");
+//				String bcontent = rs.getString("bcontent");
+//				Timestamp regdate = rs.getTimestamp("regdate");
+//				int hit = rs.getInt("hit");
+//				String bid = rs.getString("bid");
+//				BoardVO vo = new BoardVO(bno2, btitle, bcontent, regdate, hit, bid);
+//				list.add(vo);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			UtilClose.close(conn, pstmt, rs);
+//		}
+//		return list;
+//	}
 }
