@@ -38,7 +38,20 @@ public class AuthFilter implements Filter {
 				System.out.println("세션ID" + id);
 
 		//세션이 없거나 or 작성자와 세션이 다른경우
-		if((id == null || !writer.equals(id)) && !id.equals("admin")) {
+		if((id == null || !writer.equals(id))) {
+
+			String path = req.getContextPath();
+
+			res.setContentType("text/html; charset=utf-8");
+			PrintWriter out = res.getWriter();
+			out.println("<script>");
+			out.println("alert('권한이 필요한 기능입니다');");
+			out.println("location.href='" + path + "/board/board_list.board';");
+			out.println("</script>");
+
+			return;
+
+		}else if( !id.equals("admin")) {
 
 			String path = req.getContextPath();
 
