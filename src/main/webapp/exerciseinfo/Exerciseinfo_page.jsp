@@ -45,7 +45,7 @@
 											<td>${vo.ename }</td>
 											<td>${vo.sets }</td>
 											<td>${vo.base }</td>
-										<td><input type="checkbox" name="exeno${num.count}" value="1" }></td>
+										<td><input type="checkbox" name="exeno${num.count}" value="${num.count}"}></td>
 										</tr>
 				</c:forEach>
 				</tbody>

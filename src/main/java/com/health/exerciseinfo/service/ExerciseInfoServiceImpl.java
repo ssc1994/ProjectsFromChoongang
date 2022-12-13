@@ -16,7 +16,7 @@ public class ExerciseInfoServiceImpl implements ExerciseInfoService{
 		public ArrayList<ExerciseVO> getRoutine(HttpServletRequest request, HttpServletResponse response) {
 			HttpSession session = request.getSession();
 			
-			int rno = (int)session.getAttribute("rno");
+			int rno = (int)session.getAttribute("user_rno");
 			int rdayno = Integer.parseInt(request.getParameter("day"));  
 			
 			ExerciseinfoDAO dao = ExerciseinfoDAO.getInstance();

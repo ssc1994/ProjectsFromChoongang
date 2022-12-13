@@ -7,7 +7,7 @@
  	<div class="container">
 		<h3>운동 내역게시판</h3>
 
-		<table class="table table-bordered">
+		<table class="table table-bordered" style = "color:white">
 			<thead>
 				<tr>
 					<th>순서</th>
@@ -19,13 +19,14 @@
 			</thead>
 
 			<tbody>
-				<c:forEach var = "vo" items="${list }" varStatus="num" >
+				<c:forEach var = "vo" items="${list2 }" varStatus="num" >
 				<tr>
 					
 					<td>${num.count }</td>
-					<td>${vo.bno }</td>
-					<td>${vo.writer }</td>
-					<input type="submit"  value="운동내역조회">
+					<td>${vo.edate }</td>
+					<td>${vo.rdayno }</td>
+					<td>${vo.ename }</td>
+					<td>${vo.sets }</td>
 				</tr>
 				</c:forEach>
 			</tbody>
