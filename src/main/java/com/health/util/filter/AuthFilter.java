@@ -38,7 +38,7 @@ public class AuthFilter implements Filter {
 				System.out.println("세션ID" + id);
 
 		//세션이 없거나 or 작성자와 세션이 다른경우
-		if((id == null || !writer.equals(id))) {
+		if(id == null ) {
 
 			String path = req.getContextPath();
 
@@ -51,8 +51,7 @@ public class AuthFilter implements Filter {
 
 			return;
 
-		}else if( !id.equals("admin")) {
-
+		}else if(!id.equals("admin") && !writer.equals(id) ) {
 			String path = req.getContextPath();
 
 			res.setContentType("text/html; charset=utf-8");
@@ -63,7 +62,6 @@ public class AuthFilter implements Filter {
 			out.println("</script>");
 
 			return;
-
 		}
 
 
