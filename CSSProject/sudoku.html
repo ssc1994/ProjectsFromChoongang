@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스도쿠</title>
+    <!-- css링크 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+    
+    <!--제이쿼리-->
+    <script src="jquery/jquery-3.6.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <!-- js링크 -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #222222;
+        }
+
+
+        input {
+            width: 55px;
+            height: 55px;
+            font-size: large;
+            font-weight: 900;
+            text-align: center;
+            border-width: 1px;
+            border-color: black;
+
+        }
+
+
+        /* input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        } */
+
+
+        .container1 {
+            width: 580px;
+            height: 590px;
+            margin-top: 10px;
+            margin-left: 20px;
+            float: left;
+        }
+
+        .container1 #gamebody {
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .buttonall {
+            height: 50px;
+            padding-left: 160px;
+            padding-bottom: 200px;
+            color: white;
+        }
+
+        #btn4 {
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .container2 {
+            width: 300px;
+            height: 200px;
+            margin-top: 10px;
+            margin-right: 600px;
+            float: right;
+        }
+
+        .container2 .timebody {
+            width: 150px;
+            height: 90px;
+            float: left;
+            margin: 10px;
+        }
+
+        .container3 {
+            background-color: aliceblue;
+            height: 200px;
+            width: 400px;
+            float: left;
+            margin-top: 10px;
+            margin-left: 20px;
+            border-radius: 15px;
+            color: black;
+        }
+
+        .page2 {
+            display: none;
+        }
+
+        .page3 {
+            display: none;
+        }
+
+        .page4 {
+            display: none;
+        }
+        .page5 {
+            display: none;
+        }
+
+        .container4 {
+            height: 450px;
+            width: 200px;
+            position: relative;
+            left: 1200px;
+            bottom: 500px;
+            margin-right: 100px;
+            border-radius: 15px;
+        }
+
+      
+    </style>
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="lo">
+                        <a class="navbar-brand mylogo" href="index.html">
+                            재원이의 미니게임
+                        </a>
+                        <img class="log" src="img/logo.png" alt="" width="40" height="40">
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="word.html">단어장</a></li>
+                        <li><a href="sudoku.html">스도쿠</a></li>
+                        <li><a href="card.html">카드뒤집기</a></li>
+                        <li><a href="bricks.html">벽돌깨기</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container1" style="margin-left: 100px;">
+        <h3 style="color: white; padding-left: 220px;" >재원이의 스도쿠</h3>
+        <div id="gamebody"></div>
+
+        <div class="buttonall">
+            <button type="button" class="btn btn-primary" id="btn1">시작하기</button>
+            <button type="button" class="btn btn-secondary" id="btn2" style="color: black;">제출하기</button>
+            <button type="button" class="btn btn-success" id="btn3">테스트용</button>
+        </div>
+
+    </div>
+
+    <div class="container2">
+        <div class="timebody">
+            <div>
+                <div id="time" style="font-size: 40px; padding: 20px 0; margin-left: 30px; color: red;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container3" style="position: relative;">
+        <div class="howto" style="margin-left: 40px; font-size: 20px; padding : 50px 0; ">
+            <div class="page1">1.게임방법</div>
+            <div class="page2">2.스도쿠를 구성하는 칸(cell)은<br>
+                총 3×3×9 = 81칸, 3×3칸 9개로 세분화되며,<br>
+                지켜야 할 룰은 다음과 같습니다.</div>
+            <div class="page3">3.각각의 가로줄(row)과 세로줄(column)에<br>
+                1~9가 중복 없이 하나씩 들어갑니다.</div>
+            <div class="page4">4.3×3칸(box) 안에는 1~9가<br>
+                중복 없이 하나씩 들어갑니다.</div>
+            <div class ="page5">5.이제 게임을 시작하시면 됩니다.</div>
+        </div>
+        <button type="button" class="btn-primary"
+            style="float: right; margin-right: 20px; position: absolute; right: 0; bottom: 10px;"
+            id="btn4">다음으로</button>
+    </div>
+
+    <div class="container4">
+        <div class="rankboards">
+            <div class="rank">
+                <div class="ranktop" style="color: white; padding: 0; font-size: 30px;">랭킹보드</div>
+                <div style="color: white; padding: 0; font-size: 20px;">1위 : 재원 3:45</div>
+                <div style="color: white; padding: 0; font-size: 20px;">2위 : 재원 4:25</div>
+                <div style="color: white; padding: 0; font-size: 20px;">4위 : 재원 6:21</div>
+                <div style="color: white; padding: 0; font-size: 20px;">5위 : 재원 8:21</div>
+                <div style="color: white; padding: 0; font-size: 20px;">6위 : 재원 12:21</div>
+                <div style="color: white; padding: 0; font-size: 20px;">7위 : 재원 16:31</div>
+                <div style="color: white; padding: 0; font-size: 20px;">8위 : 재원 17:33</div>
+                <div style="color: white; padding: 0; font-size: 20px;">9위 : 재원 19:21</div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        var btn4 = document.getElementById("btn4");
+        var time = document.getElementById("time");
+        var gamebody = document.getElementById("gamebody");
+
+        var mm = 0;
+        var ss = 0;
+        var teston = 0;
+
+        var arr2 = new Array(9);
+        for (var i = 0; i < 9; i++) {
+            arr2[i] = new Array(9);
+        }
+
+        var arr1 = [[0, 0, 0, 0, 0, 0, 0, 0, 6],
+        [0, 3, 0, 0, 7, 1, 0, 4, 0],
+        [0, 0, 0, 0, 0, 0, 8, 0, 0],
+        [0, 0, 0, 9, 0, 8, 0, 7, 1],
+        [1, 0, 3, 0, 0, 0, 0, 0, 0],
+        [0, 0, 2, 0, 3, 0, 9, 0, 0],
+        [5, 0, 7, 0, 0, 6, 0, 0, 0],
+        [2, 0, 0, 0, 0, 0, 7, 0, 0],
+        [0, 0, 1, 8, 0, 0, 0, 0, 2]];
+
+        var arr2 = [[0, 0, 0, 0, 1, 7, 2, 0, 0],
+        [0, 0, 0, 4, 0, 0, 0, 0, 0],
+        [0, 0, 9, 0, 0, 3, 0, 0, 0],
+        [4, 0, 0, 7, 8, 0, 5, 0, 0],
+        [0, 2, 5, 0, 0, 0, 8, 0, 0],
+        [0, 0, 0, 6, 0, 0, 0, 0, 0],
+        [6, 0, 1, 5, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 6, 0, 3, 0],
+        [2, 0, 0, 0, 0, 1, 7, 0, 4]];
+
+        var arr3 = [[9, 0, 0, 5, 0, 1, 7, 0, 0],
+        [2, 0, 1, 0, 0, 9, 0, 0, 0],
+        [0, 0, 0, 8, 7, 0, 0, 9, 0],
+        [0, 8, 0, 0, 6, 4, 0, 7, 0],
+        [0, 0, 0, 0, 0, 0, 2, 1, 0],
+        [0, 0, 0, 0, 9, 0, 0, 0, 0],
+        [7, 0, 6, 2, 4, 0, 0, 0, 0],
+        [0, 4, 0, 0, 0, 0, 0, 0, 6],
+        [1, 0, 0, 0, 0, 0, 0, 4, 0]];
+
+        var arr4 = [[0, 0, 0, 0, 3, 0, 5, 7, 0],
+        [0, 0, 2, 0, 0, 8, 0, 0, 0],
+        [6, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 3, 0, 5, 7, 0, 0, 4, 0],
+        [0, 0, 0, 4, 0, 0, 0, 0, 2],
+        [0, 0, 5, 6, 0, 0, 7, 1, 8],
+        [0, 7, 8, 0, 0, 0, 0, 0, 0],
+        [0, 0, 6, 7, 0, 9, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0, 0, 2, 0]];
+
+        var arr5 = [[8, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 3, 6, 0, 0, 0, 0, 0],
+        [0, 7, 0, 0, 9, 0, 2, 0, 0],
+        [0, 5, 0, 0, 0, 7, 0, 0, 0],
+        [0, 0, 0, 0, 4, 5, 7, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 3, 0],
+        [0, 0, 1, 0, 0, 0, 0, 6, 8],
+        [0, 0, 8, 5, 0, 0, 0, 1, 0],
+        [0, 9, 0, 0, 0, 0, 4, 0, 0]];
+
+
+        var answer1 = [[7, 2, 4, 3, 8, 9, 1, 5, 6],
+        [6, 3, 8, 5, 7, 1, 2, 4, 9],
+        [9, 1, 5, 6, 4, 2, 8, 3, 7],
+        [4, 5, 6, 9, 2, 8, 3, 7, 1],
+        [1, 9, 3, 7, 6, 4, 5, 2, 8],
+        [8, 7, 2, 1, 3, 5, 9, 6, 4],
+        [5, 8, 7, 2, 9, 6, 4, 1, 3],
+        [2, 6, 9, 4, 1, 3, 7, 8, 5],
+        [3, 4, 1, 8, 5, 7, 6, 9, 2]];
+
+        var answer2 = [[5, 6, 3, 9, 1, 7, 2, 4, 8],
+        [1, 7, 2, 4, 6, 8, 3, 5, 9],
+        [8, 4, 9, 2, 5, 3, 6, 1, 7],
+        [4, 1, 6, 7, 8, 2, 5, 9, 3],
+        [3, 2, 5, 1, 4, 9, 8, 7, 6],
+        [9, 8, 7, 6, 3, 5, 4, 2, 1],
+        [6, 3, 1, 5, 7, 4, 9, 8, 2],
+        [7, 9, 4, 8, 2, 6, 1, 3, 5],
+        [2, 5, 8, 3, 9, 1, 7, 6, 4]];
+
+        var answer3 = [[9, 6, 8, 5, 2, 1, 7, 3, 4],
+        [2, 7, 1, 4, 3, 9, 6, 8, 5],
+        [4, 5, 3, 8, 7, 6, 1, 9, 2],
+        [3, 8, 2, 1, 6, 4, 5, 7, 9],
+        [6, 9, 4, 7, 8, 5, 2, 1, 3],
+        [5, 1, 7, 3, 9, 2, 4, 6, 8],
+        [7, 3, 6, 2, 4, 8, 9, 5, 1],
+        [8, 4, 5, 9, 1, 7, 3, 2, 6],
+        [1, 2, 9, 6, 5, 3, 8, 4, 7]];
+
+        var answer4 = [[1, 8, 4, 2, 3, 6, 5, 7, 9],
+        [7, 5, 2, 9, 4, 8, 1, 6, 3],
+        [6, 9, 3, 1, 5, 7, 2, 8, 4],
+        [8, 3, 1, 5, 7, 2, 9, 4, 6],
+        [9, 6, 7, 4, 8, 1, 3, 5, 2],
+        [4, 2, 5, 6, 9, 3, 7, 1, 8],
+        [2, 7, 8, 3, 1, 4, 6, 9, 5],
+        [5, 4, 6, 7, 2, 9, 8, 3, 1],
+        [3, 1, 9, 8, 6, 5, 4, 2, 7]];
+
+        var answer5 = [[8, 1, 2, 7, 5, 3, 6, 4, 9],
+        [9, 4, 3, 6, 8, 2, 1, 7, 5],
+        [6, 7, 5, 4, 9, 1, 2, 8, 3],
+        [1, 5, 4, 2, 3, 7, 8, 9, 6],
+        [3, 6, 9, 8, 4, 5, 7, 2, 1],
+        [2, 8, 7, 1, 6, 9, 5, 3, 4],
+        [5, 2, 1, 9, 7, 4, 3, 6, 8],
+        [4, 3, 8, 5, 2, 6, 9, 1, 7],
+        [7, 9, 6, 3, 1, 8, 4, 5, 2]];
+
+
+        var rannum = Math.floor(Math.random() * 5) + 1;
+        var answer = new Array(9);
+        for (var i = 0; i < 9; i++) {
+            answer[i] = new Array(9);
+        }
+        if (rannum == 1) {
+            arr = arr1
+            answer = answer1
+        } else if (rannum == 2) {
+            arr = arr2
+            answer = answer2
+        } else if (rannum == 3) {
+            arr = arr3
+            answer =answer3
+        } else if (rannum == 4) {
+            arr = arr4
+            answer = answer4
+        } else {
+            arr = arr5;
+            answer = answer5
+        }
+
+        for (var i = 0; i < 9; i++) {
+
+            var div = document.createElement("div");
+
+            for (var j = 0; j < 9; j++) {
+
+                var num = arr[i][j];
+                var ans = document.createElement("input");
+                ans.type = "text";
+                ans.maxLength ="1";
+                if (j == 2 || j == 5 | j == 8) {
+                    ans.style.borderRightWidth = "4px";
+                }
+                if (j == 0) {
+                    ans.style.borderLeftWidth = "4px";
+                }
+                if (i == 0 || i == 3 || i == 6) {
+                    ans.style.borderTopWidth = "4px";
+                }
+                if (i == 8) {
+                    ans.style.borderBottomWidth = "4px";
+                }
+                ans.className = "block";
+                if (num != 0) {
+                    ans.value = num;
+                } else {
+                    ans.style.color = "blue";
+                }
+                div.appendChild(ans);
+            }
+
+            gamebody.appendChild(div);
+        }
+
+
+        function start() {
+            time.innerHTML = mm + ' : ' + ss;
+            ss++;
+            if (ss >= 60) {
+                mm++;
+                ss = 0;
+            }
+        }
+
+        var starton = 0;
+        function aa() {
+            if(starton==0){
+            starton++;
+            gamebody.style.color = "black";
+            a = window.setInterval(start, 1000);
+        }
+
+        }
+
+        btn1.addEventListener("click", aa);
+
+
+
+        var block = document.querySelectorAll(".block");
+        btn2.onclick = function () {
+            var count = 0;
+            var answerd = 0;
+            for (var i = 0; i < 9; i++) {
+                for (var j = 0; j < 9; j++) {
+                    arr2[i][j] = block[count].value;
+                    count++;
+                }
+            }
+
+            if (rannum == 1) {
+                answer = answer1;
+            } else if (rannum == 2) {
+                answer = answer2;
+            } else if (rannum == 3) {
+                answer = answer3;
+            } else if (rannum == 4) {
+                answer = answer4;
+            } else {
+                answer = answer5;
+            }
+            console.log(answer);
+
+            for (var i = 0; i < 9; i++) {
+                for (var j = 0; j < 9; j++) {
+                    if (answer[i][j] != arr2[i][j]) {
+                        answerd++;
+                    }
+                }
+            }
+
+             if (answer == 0 && starton > 0 ||teston>0) {
+                var div = document.createElement("div");
+                var rank = document.querySelector(".rank");
+                var userinput = prompt("축하합니다. 게임에서 승리하셨습니다. 이름을 입력해주세요");
+                div.style.color = "white";
+                div.style.padding = "0";
+                div.style.fontSize = "20px";
+                div.innerHTML = "10위 : " + userinput + " 테스트";  
+                rank.appendChild(div);
+                clearInterval(a);
+            }
+            else if (answerd != 0 && starton > 0 ) {
+                alert(answerd + '개 틀렸습니다 다시 도전하세요.')
+            }
+        }
+
+        btn3.onclick = function () {
+            teston++;
+            for(var i = 0; i<9; i++){
+                gamebody.firstElementChild.remove();
+            }
+            
+            for (var i = 0; i < 9; i++) {
+                
+                var div = document.createElement("div");
+
+                arr = answer;
+                
+                for (var j = 0; j < 9; j++) {
+                    var num = arr[i][j];
+                    var ans = document.createElement("input");
+                    ans.type = "text";
+                    ans.maxLength = "1";    
+                    if (j == 2 || j == 5 | j == 8) {
+                        ans.style.borderRightWidth = "4px";
+                    }
+                    if (j == 0) {
+                        ans.style.borderLeftWidth = "4px";
+                    }
+                    if (i == 0 || i == 3 || i == 6) {
+                        ans.style.borderTopWidth = "4px";
+                    }
+                    if (i == 8) {
+                        ans.style.borderBottomWidth = "4px";
+                    }
+                    ans.className = "block";
+                    if (num != 0) {
+                        ans.value = num;
+                    } else {
+                        ans.style.color = "blue";
+                    }
+                    div.appendChild(ans);
+                }
+
+                gamebody.appendChild(div);
+            }
+        }
+
+        var count = 1;
+        var page = document.querySelector(".howto");
+        btn4.onclick = function () {
+            if (count == 1) {
+                page.firstElementChild.style.display = "none";
+                page.firstElementChild.nextElementSibling.style.display = "block";
+                count++;
+            } else if (count == 2) {
+                page.firstElementChild.nextElementSibling.style.display = "none";
+                page.firstElementChild.nextElementSibling.nextElementSibling.style.display = "block";
+                count++;
+            } else if (count == 3) {
+                page.firstElementChild.nextElementSibling.nextElementSibling.style.display = "none";
+                page.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.display = "block";
+                count ++;
+            } else if (count == 4) {
+                page.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.display = "none";
+                page.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.style.display = "block";
+                count = 0;
+            } else if(count == 0){
+                page.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.style.display = "none";
+                page.firstElementChild.style.display = "block";
+                count++;
+            }
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>

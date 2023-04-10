@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    /* background-color: #222222; */
+    font-family: 'Poor Story', cursive;
+}
+
+header {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+}
+
+body {
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #fff;
+    background-color: #222222;
+}
+
+canvas {
+    background: #eee;
+    display: block;
+    margin: 0 auto;
+}
+
+h3 {
+    color: #fff;
+    font-size: 30px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.lo {
+    padding: 10px 15px;
+    float: none;
+    display: inline-block;
+    font-weight: 900;
+    font-size: 28px;
+    position: absolute;
+    top: 0;
+    left: 20vh;
+}
+.lo a{
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.lo img {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: auto;
+    width: 100px;
+}
+.lo :hover{
+    transform: scale(1.5);
+}
+
+.lo:hover  .log{
+    transform : rotate(1080deg);
+    height: 100px;
+    width: 130px;
+    transition: 1.0s;
+}
+
+.mynav {
+    background-color: #263248;
+    border-color: #263248;
+    border-radius: 0;
+    margin: 0;
+}
+
+.navbar-collapse {
+    align-content: stretch;
+    height: 75px;
+    line-height: 75px;
+}
+.navbar{
+    min-height: 85px;
+}
+
+.navbar-inverse .navbar-nav {
+    float: none;
+    justify-content: center;
+    display: inline-block;
+}
+
+.navbar-inverse .navbar-nav>li {
+    float: none;
+    display: inline-block;
+}
+
+
+.navbar-inverse .navbar-nav>li:focus,
+.navbar-inverse .navbar-nav>li:hover {
+    padding: 12.5px 0 21px 0;
+    background-color: #000;
+}
+
+.container .titl{
+    border: 1px solid #777; 
+}
+
+.container .sub{
+    border: 1px solid #777; 
+    text-align: center;
+}
+.container .def{
+    border: 1px solid #777; 
+}
+
+/* gif넣기 */
+
+.gamedef{
+    display: flex;
+    flex-flow: row wrap;
+
+}
+
+.gamedef .gamedefInner{
+    margin: 20px;
+}
+
+.gamedef .gamedefInner img{
+    width: 500px;
+    height: 500px;
+
+}
+
+.mainHide{
+    display: none;
+}
+
+.gamedef .gamedefInner:hover .mainShow{
+    display:none;
+}
+
+.gamedef .gamedefInner:hover .mainHide{
+    display:block;
+    transform: scale(1.2);
+}
