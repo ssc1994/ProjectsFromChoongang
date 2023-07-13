@@ -16,34 +16,49 @@ const MapList = () => {
         setAddr(e.target.value);
     }
 
-    const url = "https://apis.data.go.kr/B551014/SRVC_OD_API_SFMS_FACI/TODZ_API_SFMS_FACI_I"
+    //현제 만려된 API
+    // const url = "https://apis.data.go.kr/B551014/SRVC_OD_API_SFMS_FACI/TODZ_API_SFMS_FACI_I"
 
     useEffect(() => {
         (async () => {
-            let urlquery = "?serviceKey=IxONcjfs6wc1hi5EUDKqUQfuvJ9%2B8kJ2QYxK1XXYm%2B%2FJsE5yIfdbfA12fHmbNu6YMYfoi1cd%2FTIppcx%2FllL9sQ%3D%3D";
-            urlquery += `&pageNo=${pageNum}`;
-            urlquery += "&numOfRows=10";
-            urlquery += "&resultType=JSON";
-            urlquery += `&faci_addr=${addr}`;
+            // let urlquery = "?serviceKey=공공데이터APIKEY";
+            // urlquery += `&pageNo=${pageNum}`;
+            // urlquery += "&numOfRows=10";
+            // urlquery += "&resultType=JSON";
+            // urlquery += `&faci_addr=${addr}`;
 
-            let resultArr = await axios.get(url + urlquery)
-                .then(res => {
-                    setDataPlus(dataPlus.concat(res.data.response.body.items.item));
-                    return res.data.response.body.items.item;
-                })
+            // let resultArr = await axios.get(url + urlquery)
+            //     .then(res => {
+            //         setDataPlus(dataPlus.concat(res.data.response.body.items.item));
+            //         return res.data.response.body.items.item;
+            //     })
+
+            let resultArr =
             setLoading(true);
         })();
     }, [pageNum])
 
     const handleMore = () => {     //클릭시 pageNum+1 (useEffect가 다시돌아감)
-        action.setList(dataPlus);
-        setPageNum(pageNum + 1);
+        // action.setList(dataPlus);
+        // setPageNum(pageNum + 1);
     }
 
     ///로딩페이지
     const [loading, setLoading] = useState(false);
     if (loading === false) {
-        return <div>로딩중</div>
+
+
+        return <div className="loading">
+            <span>L</span>
+            <span>O</span>
+            <span>A</span>
+            <span>D</span>
+            <span>I</span>
+            <span>N</span>
+            <span>G</span>
+        </div>
+
+        // <div>로딩중</div>
     }
 
     return (
