@@ -21,6 +21,7 @@ const MapList = () => {
 
     useEffect(() => {
         (async () => {
+
             // let urlquery = "?serviceKey=공공데이터APIKEY";
             // urlquery += `&pageNo=${pageNum}`;
             // urlquery += "&numOfRows=10";
@@ -33,7 +34,7 @@ const MapList = () => {
             //         return res.data.response.body.items.item;
             //     })
 
-            let resultArr =
+           
             setLoading(true);
         })();
     }, [pageNum])
